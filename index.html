@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dimpal & Sushant | Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Poppins;background:#0c0c10;color:#fff;overflow-x:hidden}
+
+h1,h2,h3{font-family:'Playfair Display'}
+section{padding:100px 20px;text-align:center}
+
+/* INTRO SCREEN */
+#intro{position:fixed;inset:0;background:radial-gradient(circle,#1b1b24,#060608);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:9999;padding:20px}
+
+.monogram{font-family:'Great Vibes';font-size:100px;color:#ff4d8d;animation:glow 4s infinite alternate}
+
+@keyframes glow{from{filter:drop-shadow(0 0 5px #ff4d8d)}to{filter:drop-shadow(0 0 30px #ff4d8d)}}
+
+#enterBtn{margin-top:40px;padding:14px 36px;font-size:18px;border:none;border-radius:40px;background:linear-gradient(45deg,#ff4d8d,#ff7ca9);color:white;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e') center/cover no-repeat;padding:20px;text-align:center}
+.hero h1{font-size:85px}
+.hero p{font-size:22px;margin-top:10px}
+.countdown{margin-top:25px;font-size:32px;color:#ff7ca9}
+
+.cinematic{max-width:900px;margin:auto;font-size:20px;line-height:1.8;opacity:0;transform:translateY(60px);transition:1.2s}
+.cinematic.show{opacity:1;transform:translateY(0)}
+
+.timeline{max-width:800px;margin:auto;display:flex;flex-direction:column;gap:25px;margin-top:40px}
+.event{background:#191922;padding:22px;border-radius:12px}
+.event h3{color:#ff7ca9;margin-bottom:10px}
+
+/* 3D CAROUSEL */
+.carousel{perspective:1000px;height:350px;position:relative;margin-top:40px}
+.carousel img{position:absolute;left:50%;top:50%;width:260px;height:260px;object-fit:cover;border-radius:12px;transform-style:preserve-3d;transition:1s}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:1100px;margin:auto}
+.gallery img{width:100%;height:250px;object-fit:cover;border-radius:10px}
+
+/* RSVP */
+.form{max-width:420px;margin:auto;display:flex;flex-direction:column;gap:15px;margin-top:25px}
+.form input,.form textarea{padding:12px;border-radius:6px;border:none;font-size:16px}
+.form button{padding:14px;border:none;border-radius:30px;background:#ff4d8d;color:white;font-weight:600;cursor:pointer}
+
+/* CONFETTI */
+.confetti{position:fixed;width:10px;height:10px;background:red;top:-10px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(100vh)}}
+
+footer{background:#15151b;padding:40px;margin-top:80px;color:#aaa}
+
+/* ---------------- MOBILE OPTIMIZATION ---------------- */
+
+@media (max-width:1024px){
+.hero h1{font-size:64px}
+.carousel img{width:220px;height:220px}
+}
+
+@media (max-width:768px){
+section{padding:80px 16px}
+
+.monogram{font-size:72px}
+
+.hero h1{font-size:48px}
+.hero p{font-size:18px}
+.countdown{font-size:24px}
+
+.cinematic{font-size:17px}
+
+.timeline{gap:18px}
+.event{padding:18px}
+
+.carousel{height:280px}
+.carousel img{width:180px;height:180px}
+
+.gallery{grid-template-columns:repeat(2,1fr)}
+.gallery img{height:180px}
+
+.form input,.form textarea{font-size:15px}
+
+#enterBtn{padding:12px 26px;font-size:16px}
+}
+
+@media (max-width:480px){
+.hero h1{font-size:36px}
+.hero p{font-size:16px}
+.countdown{font-size:20px}
+
+.gallery{grid-template-columns:1fr 1fr}
+.gallery img{height:150px}
+
+.carousel img{width:150px;height:150px}
+
+.monogram{font-size:58px}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<div class="monogram">DS</div>
+<h2>Dimpal & Sushant</h2>
+<p>You are invited to celebrate our wedding</p>
+<button id="enterBtn">Open Invitation</button>
+</div>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8c0a3e1f55.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+<h1>Dimpal ❤ Sushant</h1>
+<p>Save the Date</p>
+<p>20 April 2026</p>
+<div class="countdown" id="countdown"></div>
+</section>
+
+<section>
+<h2 class="cinematic">Two stories. One beautiful forever.</h2>
+<p class="cinematic">Scroll to experience our journey.</p>
+</section>
+
+<section>
+<h2>Our Story</h2>
+<div class="carousel" id="carousel">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+<img src="https://images.unsplash.com/photo-1529636798458-92182e662485">
+<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
+<img src="https://images.unsplash.com/photo-1501901609772-df0848060b33">
+</div>
+</section>
+
+<section>
+<h2>Wedding Week Events</h2>
+<div class="timeline">
+<div class="event"><h3>Haldi Ceremony</h3><p>18 April 2026 • Morning</p></div>
+<div class="event"><h3>Mehendi Ceremony</h3><p>18 April 2026 • Evening</p></div>
+<div class="event"><h3>Sangeet Night</h3><p>19 April 2026 • Evening</p></div>
+<div class="event"><h3>Wedding Ceremony</h3><p>20 April 2026 • 7 PM</p></div>
+</div>
+</section>
+
+<section>
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+<img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
+<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
+</div>
+</section>
+
+<section>
+<h2>RSVP</h2>
+<div class="form">
+<input id="name" placeholder="Your Name" />
+<input id="guests" placeholder="Number of Guests" />
+<textarea id="message" placeholder="Message"></textarea>
+<button onclick="submitRSVP()">Submit RSVP</button>
+</div>
+</section>
+
+<footer>
+With Love ❤<br>
+Dimpal & Sushant
+</footer>
+
+<script>
+
+const intro=document.getElementById('intro')
+const music=document.getElementById('music')
+
+document.getElementById('enterBtn').onclick=()=>{
+intro.style.display='none'
+music.play()
+}
+
+/* COUNTDOWN */
+var weddingDate=new Date("Apr 20, 2026 19:00:00").getTime();
+setInterval(function(){
+var now=new Date().getTime();
+var dist=weddingDate-now;
+var d=Math.floor(dist/(1000*60*60*24));
+var h=Math.floor((dist%(1000*60*60*24))/(1000*60*60));
+var m=Math.floor((dist%(1000*60*60))/(1000*60));
+document.getElementById("countdown").innerHTML=d+" Days "+h+" Hours "+m+" Minutes";
+},1000);
+
+/* CINEMATIC SCROLL */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting)entry.target.classList.add('show')
+})
+})
+
+document.querySelectorAll('.cinematic').forEach(el=>observer.observe(el))
+
+/* 3D CAROUSEL */
+const carousel=document.getElementById('carousel').children
+for(let i=0;i<carousel.length;i++){
+carousel[i].style.transform=`rotateY(${i*90}deg) translateZ(350px)`
+}
+
+/* CONFETTI */
+function confetti(){
+for(let i=0;i<60;i++){
+let c=document.createElement('div')
+c.className='confetti'
+c.style.left=Math.random()*100+'vw'
+c.style.background=['red','yellow','pink','white'][Math.floor(Math.random()*4)]
+c.style.animationDuration=2+Math.random()*3+'s'
+document.body.appendChild(c)
+setTimeout(()=>c.remove(),5000)
+}
+}
+
+function submitRSVP(){
+confetti()
+alert('Thank you for confirming your presence!')
+}
+
+</script>
+
+</body>
+</html>
