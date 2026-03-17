@@ -300,46 +300,44 @@
                 radial-gradient(ellipse at 85% 50%, rgba(196, 118, 138, 0.18) 0%, transparent 55%);
         }
 
+        #hero-petals-canvas {
+            display: none;
+        }
+
+        #invitation-petals-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            display: none;
+        }
+
         .hero-box {
-            background: rgba(255, 255, 255, 0.7);
-            backdropFilter: blur(4px);
-            border: 1px solid rgba(181, 105, 125, 0.3);
-            padding: clamp(40px, 6vw, 80px) clamp(30px, 7vw, 100px);
-            max-width: 820px;
-            width: 100%;
             position: relative;
-            box-shadow: 0 8px 40px rgba(181, 105, 125, 0.08);
+            z-index: 1;
+        }
+
+        padding: clamp(40px, 6vw, 80px) clamp(30px, 7vw, 100px);
+        max-width: 820px;
+        width: 100%;
+        position: relative;
+        box-shadow: none;
         }
 
         .hero-box::before,
         .hero-box::after {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            border-color: rgba(196, 118, 138, 0.7);
-            border-style: solid;
-        }
-
-        .hero-box::before {
-            top: -1px;
-            left: -1px;
-            border-width: 2px 0 0 2px;
-        }
-
-        .hero-box::after {
-            bottom: -1px;
-            right: -1px;
-            border-width: 0 2px 2px 0;
+            content: none;
         }
 
         .hero-eyebrow {
-            font-size: 0.88rem;
+            font-size: 1.15rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--gold-dark);
             margin-bottom: 24px;
             font-weight: 400;
+            opacity: 0;
+            animation: fadeUp 1.2s ease 0.2s forwards;
         }
 
         .hero-names {
@@ -347,6 +345,8 @@
             font-size: clamp(3rem, 10vw, 6.5rem);
             color: var(--text);
             line-height: 1.1;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.55s forwards, heroFloat 6s ease-in-out 2s infinite;
         }
 
         .hero-names .amp {
@@ -360,6 +360,13 @@
             gap: 14px;
             margin: 22px 0;
             color: var(--gold);
+            opacity: 0;
+            animation: fadeUp 1.2s ease 0.9s forwards;
+        }
+
+        .ornament svg {
+            animation: heartBeat 2.4s ease-in-out 2s infinite;
+            transform-origin: center;
         }
 
         .orn-line {
@@ -382,6 +389,8 @@
             letter-spacing: 0.14em;
             color: var(--text-light);
             margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeUp 1.2s ease 1.2s forwards;
         }
 
         .hero-location {
@@ -389,6 +398,8 @@
             font-weight: 400;
             letter-spacing: 0.12em;
             color: var(--gold-dark);
+            opacity: 0;
+            animation: fadeUp 1.2s ease 1.45s forwards;
         }
 
         .hero-scroll {
@@ -440,7 +451,7 @@
         }
 
         .s-label {
-            font-size: 0.82rem;
+            font-size: 1.05rem;
             letter-spacing: 0.32em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -970,7 +981,7 @@
         }
 
         .foot-credit {
-            font-size: 0.72rem;
+            font-size: 1rem;
             color: rgba(150, 71, 92, 0.45);
             letter-spacing: 0.1em;
         }
@@ -1030,6 +1041,206 @@
             }
         }
 
+        @keyframes heroFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            14% {
+                transform: scale(1.3);
+            }
+
+            28% {
+                transform: scale(1);
+            }
+
+            42% {
+                transform: scale(1.2);
+            }
+
+            56% {
+                transform: scale(1);
+            }
+        }
+
+        /* =========================================================
+           ANIMATION VARIANTS & ENHANCEMENTS
+        ========================================================= */
+
+        /* Slide-from-left reveal */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.85s ease, transform 0.85s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Slide-from-right reveal */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.85s ease, transform 0.85s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Scale-up reveal */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Stagger grid children */
+        .stagger-children>* {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .stagger-children.visible>* {
+            opacity: 1;
+            transform: none;
+        }
+
+        .stagger-children.visible>*:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .stagger-children.visible>*:nth-child(2) {
+            transition-delay: 0.18s;
+        }
+
+        .stagger-children.visible>*:nth-child(3) {
+            transition-delay: 0.31s;
+        }
+
+        .stagger-children.visible>*:nth-child(4) {
+            transition-delay: 0.44s;
+        }
+
+        .stagger-children.visible>*:nth-child(5) {
+            transition-delay: 0.57s;
+        }
+
+        .stagger-children.visible>*:nth-child(6) {
+            transition-delay: 0.70s;
+        }
+
+        /* s-bar: grow from center instead of sliding up */
+        .s-bar.reveal {
+            opacity: 1;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.9s ease 0.3s;
+        }
+
+        .s-bar.reveal.visible {
+            transform: scaleX(1);
+        }
+
+        /* Event symbol bounce on card hover */
+        .event-symbol {
+            display: block;
+            transition: transform 0.25s ease;
+        }
+
+        .event-card:hover .event-symbol {
+            animation: symbolBounce 0.55s ease forwards;
+        }
+
+        /* Detail icon hover glow */
+        .detail-icon {
+            transition: transform 0.35s ease, color 0.35s ease;
+        }
+
+        .detail-card:hover .detail-icon {
+            transform: scale(1.15) rotate(8deg);
+            color: var(--gold-dark);
+        }
+
+        /* Section title shimmer on reveal */
+        .s-title.shimmer {
+            background: linear-gradient(90deg, var(--text) 30%, var(--gold) 50%, var(--text) 70%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 2.2s ease forwards;
+        }
+
+        /* Countdown number tick flash */
+        .cd-num.tick {
+            animation: numTick 0.28s ease;
+        }
+
+        /* New keyframes */
+        @keyframes symbolBounce {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            35% {
+                transform: translateY(-14px) scale(1.25);
+            }
+
+            65% {
+                transform: translateY(-6px) scale(1.1);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes numTick {
+            0% {
+                transform: translateY(-8px);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes titleShimmer {
+            0% {
+                background-position: 200% center;
+            }
+
+            100% {
+                background-position: -200% center;
+            }
+        }
+
         /* =========================================================
            RESPONSIVE
         ========================================================= */
@@ -1080,7 +1291,7 @@
             /* hero */
             .hero-eyebrow {
                 letter-spacing: 0.22em;
-                font-size: 0.72rem;
+                font-size: 0.95rem;
             }
 
             .hero-date {
@@ -1167,7 +1378,7 @@
             }
 
             .hero-eyebrow {
-                font-size: 0.64rem;
+                font-size: 0.85rem;
                 letter-spacing: 0.15em;
             }
 
@@ -1365,6 +1576,7 @@
      MAIN INVITATION
 ============================================================= -->
     <div id="invitation">
+        <canvas id="invitation-petals-canvas"></canvas>
 
         <!-- ── HERO ──────────────────────────────────────────────── -->
         <section class="hero">
@@ -1405,7 +1617,7 @@
                 <h2 class="s-title reveal">A Love Story</h2>
                 <div class="s-bar reveal"></div>
 
-                <div class="photos-grid reveal">
+                <div class="photos-grid stagger-children">
 
                     <!-- Bride -->
                     <div class="photo-card">
@@ -1562,7 +1774,7 @@
                 <h2 class="s-title reveal">How It All Began</h2>
                 <div class="s-bar reveal"></div>
 
-                <div class="story-wrap reveal">
+                <div class="story-wrap reveal-scale">
                     <p class="story-quote">"And suddenly all the love songs were about you."</p>
                     <p class="story-body">
                         Two souls, one beautiful journey. From the moment we met, we knew
@@ -1587,7 +1799,7 @@
                 <h2 class="s-title reveal">A Celebration Across Three Days</h2>
                 <div class="s-bar reveal"></div>
 
-                <div class="events-grid reveal">
+                <div class="events-grid stagger-children">
 
                     <!-- Mehendi -->
                     <div class="event-card">
@@ -1661,7 +1873,7 @@
                     you will be joining us on our special day by filling out the form below.
                 </p>
 
-                <div class="rsvp-wrap reveal">
+                <div class="rsvp-wrap reveal-scale">
                     <!--
                     ================================================================
                     STEP 3 — PASTE YOUR GOOGLE FORM IFRAME HERE
@@ -1847,25 +2059,110 @@
             // stop petal animation after fade
             setTimeout(() => { if (window._stopPetals) window._stopPetals(); }, 1500);
 
+            // start invitation-wide petals
+            startInvitationPetals();
+
             // boot intersection-observer for reveal animations
             setTimeout(initReveal, 300);
+        }
+
+        /* =====================================================================
+           INVITATION PETALS — fixed canvas over entire invitation
+        ===================================================================== */
+        function startInvitationPetals() {
+            const canvas = document.getElementById('invitation-petals-canvas');
+            if (!canvas) return;
+            canvas.style.display = 'block';
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize, { passive: true });
+
+            const COLORS = [
+                'rgba(196,118,138,0.45)',
+                'rgba(224,155,175,0.38)',
+                'rgba(245,190,210,0.30)',
+                'rgba(165,82,105,0.40)',
+                'rgba(235,170,190,0.34)',
+            ];
+
+            function mkPetal(randomY) {
+                return {
+                    x: Math.random() * window.innerWidth,
+                    y: randomY ? Math.random() * window.innerHeight : -20,
+                    size: Math.random() * 6 + 2,
+                    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                    vy: Math.random() * 0.8 + 0.3,
+                    vx: (Math.random() - 0.5) * 1.0,
+                    rot: Math.random() * Math.PI * 2,
+                    rotV: (Math.random() - 0.5) * 0.035,
+                    swayAmp: Math.random() * 1.6 + 0.3,
+                    swayFreq: Math.random() * 0.016 + 0.007,
+                    swayOff: Math.random() * Math.PI * 2,
+                    opacity: Math.random() * 0.35 + 0.15,
+                };
+            }
+
+            const petals = Array.from({ length: 55 }, () => mkPetal(true));
+
+            function draw(t) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < petals.length; i++) {
+                    const p = petals[i];
+                    p.y += p.vy;
+                    p.x += p.vx + Math.sin(t * p.swayFreq + p.swayOff) * p.swayAmp * 0.04;
+                    p.rot += p.rotV;
+                    if (p.y > canvas.height + 20) {
+                        petals[i] = mkPetal(false);
+                        continue;
+                    }
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot);
+                    ctx.globalAlpha = p.opacity;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, p.size, p.size * 1.7, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+                requestAnimationFrame(draw);
+            }
+            requestAnimationFrame(draw);
         }
 
         /* =====================================================================
            SCROLL REVEAL
         ===================================================================== */
         function initReveal() {
-            const els = document.querySelectorAll('.reveal');
+            const sel = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children';
+            const els = document.querySelectorAll(sel);
             const io = new IntersectionObserver(
                 entries => entries.forEach(e => {
                     if (e.isIntersecting) {
                         e.target.classList.add('visible');
+                        // shimmer effect on section titles
+                        if (e.target.classList.contains('s-title')) {
+                            e.target.classList.add('shimmer');
+                        }
                         io.unobserve(e.target);
                     }
                 }),
                 { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
             );
             els.forEach(el => io.observe(el));
+
+            // Parallax on hero background
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                window.addEventListener('scroll', () => {
+                    hero.style.backgroundPositionY = (window.scrollY * 0.25) + 'px';
+                }, { passive: true });
+            }
         }
 
         /* =====================================================================
@@ -1873,6 +2170,17 @@
            ↳  Change the weddingDate value to your actual wedding date/time
         ===================================================================== */
         const weddingDate = new Date('2026-04-20T20:00:00');   // ← edit this
+
+        function setNum(id, val) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (el.textContent !== val) {
+                el.textContent = val;
+                el.classList.remove('tick');
+                void el.offsetWidth; // reflow to restart animation
+                el.classList.add('tick');
+            }
+        }
 
         function tick() {
             const diff = weddingDate - Date.now();
@@ -1887,10 +2195,10 @@
             const m = Math.floor(diff % 36e5 / 6e4);
             const s = Math.floor(diff % 6e4 / 1e3);
 
-            document.getElementById('cd-days').textContent = String(d).padStart(3, '0');
-            document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-            document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-            document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+            setNum('cd-days', String(d).padStart(3, '0'));
+            setNum('cd-hours', String(h).padStart(2, '0'));
+            setNum('cd-mins', String(m).padStart(2, '0'));
+            setNum('cd-secs', String(s).padStart(2, '0'));
         }
         tick();
         setInterval(tick, 1000);
