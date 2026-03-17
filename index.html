@@ -20,28 +20,28 @@
         }
 
         :root {
-            --gold: #C4768A;
-            /* dusty rose — main accent   */
-            --gold-light: #E5A0B5;
-            /* light blush rose            */
-            --gold-pale: #F5DDE3;
-            /* pale blush                  */
-            --gold-dark: #96475C;
-            /* deep rose                   */
-            --cream: #FDF5F7;
-            /* blush white                 */
-            --cream-dark: #F5E4E9;
-            /* light blush cream           */
-            --dark: #FBE4EE;
-            /* light blush section bg      */
-            --dark2: #FDE8F1;
-            /* lighter blush               */
-            --dark3: #F5D8E5;
-            /* mid blush                   */
-            --text: #4A1E30;
-            /* dark plum text              */
-            --text-light: #8B5468;
-            /* mauve text                  */
+            --gold: #B5697D;
+            /* muted dusty rose         */
+            --gold-light: #D99AAE;
+            /* softer rose              */
+            --gold-pale: #F5E0E6;
+            /* pale blush               */
+            --gold-dark: #8A4055;
+            /* deep rose accent         */
+            --cream: #FEFCFD;
+            /* near white               */
+            --cream-dark: #F7EDF1;
+            /* faint blush              */
+            --dark: #FAF3F6;
+            /* barely-there blush       */
+            --dark2: #F7EDF2;
+            /* light pink section bg    */
+            --dark3: #F0E0E7;
+            /* slightly stronger blush  */
+            --text: #3A1625;
+            /* very dark plum           */
+            --text-light: #7A4F60;
+            /* medium mauve             */
         }
 
         html {
@@ -51,6 +51,7 @@
 
         body {
             font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
             background: var(--cream);
             color: var(--text);
             overflow-x: hidden;
@@ -300,11 +301,14 @@
         }
 
         .hero-box {
-            border: 1px solid rgba(196, 118, 138, 0.45);
+            background: rgba(255, 255, 255, 0.7);
+            backdropFilter: blur(4px);
+            border: 1px solid rgba(181, 105, 125, 0.3);
             padding: clamp(40px, 6vw, 80px) clamp(30px, 7vw, 100px);
             max-width: 820px;
             width: 100%;
             position: relative;
+            box-shadow: 0 8px 40px rgba(181, 105, 125, 0.08);
         }
 
         .hero-box::before,
@@ -330,11 +334,12 @@
         }
 
         .hero-eyebrow {
-            font-size: 0.8rem;
-            letter-spacing: 0.55em;
+            font-size: 0.88rem;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--gold-dark);
             margin-bottom: 24px;
+            font-weight: 400;
         }
 
         .hero-names {
@@ -372,18 +377,18 @@
         }
 
         .hero-date {
-            font-size: clamp(0.95rem, 2.2vw, 1.2rem);
-            font-weight: 300;
-            letter-spacing: 0.2em;
+            font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+            font-weight: 400;
+            letter-spacing: 0.14em;
             color: var(--text-light);
             margin-bottom: 8px;
         }
 
         .hero-location {
-            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            color: var(--gold);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--gold-dark);
         }
 
         .hero-scroll {
@@ -435,17 +440,18 @@
         }
 
         .s-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.55em;
+            font-size: 0.82rem;
+            letter-spacing: 0.32em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--gold-dark);
             text-align: center;
             margin-bottom: 10px;
+            font-weight: 400;
         }
 
         .s-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.1rem, 5vw, 3.2rem);
             font-weight: 400;
             font-style: italic;
             text-align: center;
@@ -545,16 +551,16 @@
         }
 
         .ph-text {
-            font-size: 0.78rem;
-            letter-spacing: 0.25em;
+            font-size: 0.88rem;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: rgba(100, 45, 70, 0.55);
+            color: rgba(80, 35, 55, 0.6);
         }
 
         .photo-name {
             margin-top: 16px;
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
+            font-size: 2.4rem;
             color: var(--gold-dark);
         }
 
@@ -635,31 +641,32 @@
         }
 
         .detail-tag {
-            font-size: 0.73rem;
-            letter-spacing: 0.45em;
+            font-size: 0.82rem;
+            letter-spacing: 0.28em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--gold-dark);
             margin-bottom: 14px;
+            font-weight: 400;
         }
 
         .detail-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
             color: var(--text);
             margin-bottom: 24px;
         }
 
         .detail-body {
-            font-size: 1.08rem;
-            font-weight: 300;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--text-light);
-            line-height: 1.9;
+            line-height: 2;
         }
 
         .detail-body strong {
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         /* =========================================================
@@ -693,8 +700,8 @@
         }
 
         .cd-lbl {
-            font-size: 0.72rem;
-            letter-spacing: 0.3em;
+            font-size: 0.82rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-light);
             margin-top: 8px;
@@ -731,97 +738,107 @@
         }
 
         .story-body {
-            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-            font-weight: 300;
-            line-height: 1.95;
+            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+            font-weight: 400;
+            line-height: 2;
             color: var(--text);
             font-style: italic;
         }
 
         /* =========================================================
-           SCHEDULE / TIMELINE
+           CELEBRATIONS — EVENT CARDS
         ========================================================= */
         .timeline-section {
             background: var(--dark2);
         }
 
-        .timeline {
-            position: relative;
-            max-width: 680px;
-            margin: 60px auto 0;
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+            margin-top: 60px;
         }
 
-        .timeline::before {
+        .event-card {
+            background: #ffffff;
+            border: 1px solid rgba(181, 105, 125, 0.2);
+            padding: 38px 26px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(181, 105, 125, 0.13);
+        }
+
+        .event-card::before,
+        .event-card::after {
             content: '';
             position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(180deg, transparent, var(--gold-dark) 15%, var(--gold-dark) 85%, transparent);
-            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-style: solid;
+            border-color: rgba(181, 105, 125, 0.45);
         }
 
-        .tl-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 48px;
-            position: relative;
+        .event-card::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
         }
 
-        .tl-item.right {
-            flex-direction: row-reverse;
+        .event-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
         }
 
-        .tl-content {
-            flex: 1;
-            text-align: right;
-            padding-right: 44px;
-        }
-
-        .tl-item.right .tl-content {
-            text-align: left;
-            padding-right: 0;
-            padding-left: 44px;
-        }
-
-        .tl-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
-            border: 2px solid var(--dark2);
-            outline: 1px solid var(--gold-dark);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        .tl-spacer {
-            flex: 1;
-        }
-
-        .tl-time {
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
-            color: var(--gold);
+        .event-date-chip {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .tl-event {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            color: var(--gold-dark);
+            background: var(--gold-pale);
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
-            color: var(--text);
-            margin-bottom: 3px;
         }
 
-        .tl-note {
-            font-size: 0.93rem;
-            font-weight: 300;
+        .event-symbol {
+            font-size: 2.4rem;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .event-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.65rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .event-time {
+            font-size: 0.88rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .event-tagline {
+            font-size: 1.1rem;
+            font-style: italic;
             color: var(--text-light);
+            line-height: 1.7;
         }
 
 
@@ -837,9 +854,9 @@
         .rsvp-intro {
             max-width: 580px;
             margin: 0 auto 48px;
-            font-size: 1.13rem;
+            font-size: 1.25rem;
             font-style: italic;
-            line-height: 1.85;
+            line-height: 1.9;
             color: var(--text-light);
         }
 
@@ -883,9 +900,9 @@
 
         .rsvp-placeholder p {
             color: var(--text-light);
-            font-size: 0.97rem;
-            line-height: 1.65;
-            max-width: 420px;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            max-width: 480px;
             margin: 0 auto 14px;
         }
 
@@ -945,10 +962,10 @@
 
 
         .foot-verse {
-            font-size: 0.88rem;
+            font-size: 1.05rem;
             color: var(--text-light);
             font-style: italic;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.08em;
             margin-bottom: 28px;
         }
 
@@ -1088,31 +1105,9 @@
                 padding: 36px 24px;
             }
 
-            /* timeline → single column */
-            .timeline::before {
-                left: 18px;
-                transform: none;
-            }
-
-            .tl-item,
-            .tl-item.right {
-                flex-direction: column;
-                padding-left: 50px;
-            }
-
-            .tl-dot {
-                left: 18px;
-                transform: none;
-            }
-
-            .tl-content,
-            .tl-item.right .tl-content {
-                text-align: left;
-                padding: 0;
-            }
-
-            .tl-spacer {
-                display: none;
+            /* events grid → 2 columns on tablet */
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             /* countdown */
@@ -1216,10 +1211,12 @@
                 gap: 12px;
             }
 
-            /* dress */
-            .dress-grid {
+            /* events grid → 1 column on small phones */
+            .events-grid {
                 grid-template-columns: 1fr;
-                max-width: 220px;
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             /* rsvp */
@@ -1487,7 +1484,7 @@
                 <h2 class="s-title lt reveal">Wedding Details</h2>
                 <div class="s-bar reveal"></div>
 
-                <div class="details-grid reveal">
+                <div class="details-grid reveal" style="grid-template-columns:1fr;max-width:520px;margin:60px auto 0;">
 
                     <!-- Ceremony -->
                     <div class="detail-card">
@@ -1498,31 +1495,12 @@
                                 <path d="M9 13 a3 3 0 006 0" />
                             </svg>
                         </div>
-                        <p class="detail-tag">Wedding</p>
+                        <p class="detail-tag">Wedding Ceremony</p>
                         <h3 class="detail-title">The Ceremony</h3>
                         <div class="detail-body">
                             <strong>Monday, April 20, 2026</strong><br>
-                            8:00 PM Onwards<br><br>
-                            <strong>Chancellor Club</strong><br>
-                            Ashiyana, Lucknow<br>
-                            Uttar Pradesh
-                        </div>
-                    </div>
-
-                    <!-- Reception -->
-                    <div class="detail-card">
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="40"
-                                height="40">
-                                <rect x="3" y="4" width="18" height="18" rx="2" />
-                                <path d="M16 2v4M8 2v4M3 10h18" />
-                            </svg>
-                        </div>
-                        <p class="detail-tag">Reception</p>
-                        <h3 class="detail-title">The Celebration</h3>
-                        <div class="detail-body">
-                            <strong>Monday, April 20, 2026</strong><br>
-                            9:30 PM &mdash; Late<br><br>
+                            Doors open at 7:00 PM<br>
+                            Ceremony begins at 8:00 PM<br><br>
                             <strong>Chancellor Club</strong><br>
                             Ashiyana, Lucknow<br>
                             Uttar Pradesh
@@ -1589,73 +1567,67 @@
             </div>
         </section>
 
-        <!-- ── SCHEDULE ──────────────────────────────────────────── -->
+        <!-- ── CELEBRATIONS ──────────────────────────────────────── -->
         <section class="timeline-section">
             <div class="container">
-                <p class="s-label reveal" style="color:var(--gold)">The Day</p>
-                <h2 class="s-title lt reveal">Schedule of Events</h2>
+                <p class="s-label reveal">19th &mdash; 21st April 2026</p>
+                <h2 class="s-title reveal">A Celebration Across Three Days</h2>
                 <div class="s-bar reveal"></div>
 
-                <div class="timeline reveal">
+                <div class="events-grid reveal">
 
-                    <div class="tl-item">
-                        <div class="tl-content">
-                            <p class="tl-time">7:00 PM</p>
-                            <p class="tl-event">Guest Arrival</p>
-                            <p class="tl-note">Guests are welcomed &amp; seated</p>
-                        </div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-spacer"></div>
+                    <!-- Mehendi -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 19</span>
+                        <span class="event-symbol">🌿</span>
+                        <p class="event-name">Mehendi</p>
+                        <p class="event-time">12:00 Noon</p>
+                        <p class="event-tagline">&ldquo;Where hands bloom with stories of love&rdquo;</p>
                     </div>
 
-                    <div class="tl-item right">
-                        <div class="tl-spacer"></div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-content">
-                            <p class="tl-time">7:30 PM</p>
-                            <p class="tl-event">Welcome Cocktails</p>
-                            <p class="tl-note">Drinks &amp; light starters</p>
-                        </div>
+                    <!-- Sangeet -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 19</span>
+                        <span class="event-symbol">🎶</span>
+                        <p class="event-name">Sangeet</p>
+                        <p class="event-time">7:00 PM</p>
+                        <p class="event-tagline">&ldquo;When music fills the air and memories begin&rdquo;</p>
                     </div>
 
-                    <div class="tl-item">
-                        <div class="tl-content">
-                            <p class="tl-time">8:00 PM</p>
-                            <p class="tl-event">Wedding Ceremony</p>
-                            <p class="tl-note">Varmala &amp; exchange of vows</p>
-                        </div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-spacer"></div>
+                    <!-- Haldi -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 20</span>
+                        <span class="event-symbol">🌼</span>
+                        <p class="event-name">Haldi</p>
+                        <p class="event-time">9:00 AM</p>
+                        <p class="event-tagline">&ldquo;A golden blessing before forever begins&rdquo;</p>
                     </div>
 
-                    <div class="tl-item right">
-                        <div class="tl-spacer"></div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-content">
-                            <p class="tl-time">9:30 PM</p>
-                            <p class="tl-event">Dinner &amp; Reception</p>
-                            <p class="tl-note">Feast, toasts &amp; celebration</p>
-                        </div>
+                    <!-- Barat -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 20</span>
+                        <span class="event-symbol">🐴</span>
+                        <p class="event-name">Barat</p>
+                        <p class="event-time">7:00 PM</p>
+                        <p class="event-tagline">&ldquo;He arrives in grandeur &mdash; her forever is near&rdquo;</p>
                     </div>
 
-                    <div class="tl-item">
-                        <div class="tl-content">
-                            <p class="tl-time">10:30 PM</p>
-                            <p class="tl-event">Cake Cutting &amp; First Dance</p>
-                            <p class="tl-note">The most beautiful moments</p>
-                        </div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-spacer"></div>
+                    <!-- Jaimal -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 20</span>
+                        <span class="event-symbol">🌸</span>
+                        <p class="event-name">Jaimal</p>
+                        <p class="event-time">9:00 PM</p>
+                        <p class="event-tagline">&ldquo;Two garlands, one destiny, one eternal love&rdquo;</p>
                     </div>
 
-                    <div class="tl-item right">
-                        <div class="tl-spacer"></div>
-                        <div class="tl-dot"></div>
-                        <div class="tl-content">
-                            <p class="tl-time">11:30 PM</p>
-                            <p class="tl-event">Music &amp; Dancing</p>
-                            <p class="tl-note">Let the party begin!</p>
-                        </div>
+                    <!-- Vidaai -->
+                    <div class="event-card">
+                        <span class="event-date-chip">April 21</span>
+                        <span class="event-symbol">✨</span>
+                        <p class="event-name">Vidaai</p>
+                        <p class="event-time">5:00 AM</p>
+                        <p class="event-tagline">&ldquo;As dawn whispers goodbye, a new world awaits&rdquo;</p>
                     </div>
 
                 </div>
@@ -1721,7 +1693,8 @@
                                 Name it <em>&ldquo;Dimpal &amp; Sushant &mdash; Guest RSVPs&rdquo;</em> &rarr; click
                                 <strong>Create</strong>.<br>
                                 Every new RSVP submission will now auto-save to that sheet in real time. You can open it
-                                anytime from Google Drive.</p>
+                                anytime from Google Drive.
+                            </p>
 
                             <p
                                 style="font-family:'Playfair Display',serif;font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin:24px 0 8px;">
@@ -1733,10 +1706,12 @@
                                 <code>STEP 3 &mdash; PASTE YOUR GOOGLE FORM IFRAME HERE</code>.<br>
                                 Delete this entire
                                 <code>&lt;div class=&quot;rsvp-placeholder&quot;&gt;&hellip;&lt;/div&gt;</code> block
-                                and paste the copied iframe in its place.</p>
+                                and paste the copied iframe in its place.
+                            </p>
                         </div>
                         <p style="margin-top:28px;font-size:0.82rem;color:var(--text-light);">Search for
-                            <code>STEP 3</code> in the source to find the exact insertion point.</p>
+                            <code>STEP 3</code> in the source to find the exact insertion point.
+                        </p>
                     </div>
                 </div>
             </div>
