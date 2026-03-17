@@ -60,7 +60,9 @@
         #cover {
             position: fixed;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 40%, #3B1423 0%, #1A0812 60%);
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(59, 20, 35, 0.82) 0%, rgba(26, 8, 18, 0.90) 60%),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -134,7 +136,7 @@
         }
 
         .cover-label {
-            font-size: clamp(0.95rem, 2vw, 1.2rem);
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
             font-weight: 300;
             letter-spacing: 0.6em;
             color: rgba(253, 248, 240, 0.65);
@@ -201,7 +203,7 @@
             border: 1px solid var(--gold);
             color: var(--gold);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 400;
             letter-spacing: 0.4em;
             text-transform: uppercase;
@@ -245,7 +247,7 @@
 
         .cover-scroll span {
             display: block;
-            font-size: 0.68rem;
+            font-size: 0.8rem;
             letter-spacing: 0.35em;
             text-transform: uppercase;
             color: rgba(196, 118, 138, 0.4);
@@ -271,7 +273,9 @@
 
         .hero {
             min-height: 100vh;
-            background: var(--dark);
+            background:
+                linear-gradient(to bottom, rgba(250, 243, 246, 0.82) 0%, rgba(247, 237, 241, 0.88) 100%),
+                url('https://images.unsplash.com/photo-1630764883473-e8c2056f0589?w=1800&auto=format&fit=crop&q=80') center 30%/cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -314,7 +318,7 @@
         }
 
         .hero-eyebrow {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -368,7 +372,7 @@
         }
 
         .hero-date {
-            font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+            font-size: clamp(1.15rem, 2.4vw, 1.4rem);
             font-weight: 400;
             letter-spacing: 0.14em;
             color: var(--text-light);
@@ -378,7 +382,7 @@
         }
 
         .hero-location {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-weight: 400;
             letter-spacing: 0.12em;
             color: var(--gold-dark);
@@ -398,7 +402,7 @@
         }
 
         .hero-scroll span {
-            font-size: 0.68rem;
+            font-size: 0.8rem;
             letter-spacing: 0.3em;
             color: rgba(196, 118, 138, 0.45);
             text-transform: uppercase;
@@ -432,7 +436,7 @@
         }
 
         .s-label {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             letter-spacing: 0.32em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -540,7 +544,7 @@
         }
 
         .ph-text {
-            font-size: 0.88rem;
+            font-size: 0.98rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: rgba(80, 35, 55, 0.6);
@@ -556,14 +560,16 @@
         .photo-hint {
             text-align: center;
             margin-top: 28px;
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             color: #b08898;
             letter-spacing: 0.08em;
             font-style: italic;
         }
 
         .details-section {
-            background: var(--dark);
+            background:
+                linear-gradient(to bottom, rgba(250, 243, 246, 0.85) 0%, rgba(247, 237, 241, 0.90) 100%),
+                url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1') center top/cover no-repeat;
             position: relative;
         }
 
@@ -627,7 +633,7 @@
         }
 
         .detail-tag {
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             letter-spacing: 0.28em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -644,7 +650,7 @@
         }
 
         .detail-body {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 400;
             color: var(--text-light);
             line-height: 2;
@@ -683,7 +689,7 @@
         }
 
         .cd-lbl {
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-light);
@@ -701,6 +707,10 @@
 
         .story-section {
             background: var(--cream-dark);
+            background:
+                linear-gradient(to bottom, rgba(250, 243, 246, 0.82) 0%, rgba(247, 237, 241, 0.88) 100%),
+                url('https://images.unsplash.com/photo-1535615615570-3b839f4359be?w=1800&auto=format&fit=crop&q=80') center 50%/cover no-repeat;
+
         }
 
         .story-wrap {
@@ -718,7 +728,7 @@
         }
 
         .story-body {
-            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
             font-weight: 400;
             line-height: 2;
             color: var(--text);
@@ -774,7 +784,7 @@
 
         .event-date-chip {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -803,7 +813,7 @@
         }
 
         .event-time {
-            font-size: 0.88rem;
+            font-size: 0.98rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--gold-dark);
@@ -812,7 +822,7 @@
         }
 
         .event-tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-style: italic;
             color: var(--text-light);
             line-height: 1.7;
@@ -826,7 +836,7 @@
         .rsvp-intro {
             max-width: 580px;
             margin: 0 auto 48px;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-style: italic;
             line-height: 1.9;
             color: var(--text-light);
@@ -865,7 +875,7 @@
 
         .rsvp-field label {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-light);
@@ -875,7 +885,7 @@
         .rsvp-field select,
         .rsvp-field textarea {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--text);
             background: #fff;
             border: 1px solid rgba(196, 118, 138, 0.35);
@@ -912,7 +922,7 @@
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--text);
         }
 
@@ -937,7 +947,7 @@
 
         .rsvp-btn {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: #fff;
@@ -956,6 +966,51 @@
         .rsvp-btn:disabled {
             opacity: 0.65;
             cursor: not-allowed;
+        }
+
+        .rsvp-form {
+            position: relative;
+        }
+
+        .rsvp-loader {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.82);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            z-index: 10;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        .rsvp-loader.hidden {
+            display: none !important;
+        }
+
+        .rsvp-spinner {
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--gold-pale);
+            border-top-color: var(--gold-dark);
+            border-radius: 50%;
+            animation: rsvpSpin 0.8s linear infinite;
+        }
+
+        .rsvp-loader-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.98rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+        }
+
+        @keyframes rsvpSpin {
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .rsvp-success {
@@ -982,7 +1037,7 @@
 
         .rsvp-success p {
             color: var(--text-light);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.75;
         }
 
@@ -1005,7 +1060,7 @@
         }
 
         .foot-date {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             letter-spacing: 0.35em;
             color: var(--text-light);
             text-transform: uppercase;
@@ -1034,7 +1089,7 @@
         }
 
         .foot-verse {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--text-light);
             font-style: italic;
             letter-spacing: 0.08em;
@@ -1042,7 +1097,7 @@
         }
 
         .foot-credit {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: rgba(150, 71, 92, 0.45);
             letter-spacing: 0.1em;
         }
@@ -1328,7 +1383,7 @@
 
             .hero-eyebrow {
                 letter-spacing: 0.22em;
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .hero-date {
@@ -1345,7 +1400,7 @@
 
             .s-label {
                 letter-spacing: 0.28em;
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .detail-card {
@@ -1362,6 +1417,21 @@
 
             .countdown-row {
                 gap: 20px;
+            }
+
+            #cover {
+                background-position: center center, center center;
+                background-size: cover, cover;
+            }
+
+            .hero {
+                background-position: center center, center 20%;
+                background-size: auto, cover;
+            }
+
+            .details-section {
+                background-position: center center, center 25%;
+                background-size: auto, cover;
             }
         }
 
@@ -1385,18 +1455,18 @@
 
             .cover-label {
                 letter-spacing: 0.1em;
-                font-size: 0.78rem;
+                font-size: 0.88rem;
             }
 
             .cover-date {
                 letter-spacing: 0.07em;
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .open-btn {
                 padding: 14px 0;
                 letter-spacing: 0.15em;
-                font-size: 0.92rem;
+                font-size: 1.02rem;
                 display: block;
                 width: 100%;
                 max-width: 240px;
@@ -1413,7 +1483,7 @@
             }
 
             .hero-eyebrow {
-                font-size: 1.05rem;
+                font-size: 1.15rem;
                 letter-spacing: 0.15em;
             }
 
@@ -1430,7 +1500,7 @@
             }
 
             .photo-hint {
-                font-size: 0.88rem;
+                font-size: 0.98rem;
             }
 
             .photo-hint code {
@@ -1442,7 +1512,7 @@
             }
 
             .detail-body {
-                font-size: 1.15rem;
+                font-size: 1.25rem;
             }
 
             .cd-item {
@@ -1465,7 +1535,22 @@
             }
 
             .rsvp-intro {
-                font-size: 1.15rem;
+                font-size: 1.25rem;
+            }
+
+            #cover {
+                background-position: center center, 60% center;
+                background-size: cover, cover;
+            }
+
+            .hero {
+                background-position: center center, 65% 20%;
+                background-size: auto, cover;
+            }
+
+            .details-section {
+                background-position: center center, 55% 20%;
+                background-size: auto, cover;
             }
 
             footer {
@@ -1480,7 +1565,7 @@
 
             .cover-label {
                 letter-spacing: 0.06em;
-                font-size: 0.72rem;
+                font-size: 0.82rem;
             }
 
             .hero-names {
@@ -1492,7 +1577,7 @@
             }
 
             .detail-title {
-                font-size: 1.35rem;
+                font-size: 1.45rem;
             }
         }
 
@@ -1635,7 +1720,8 @@
                     <div class="photo-card">
 
                         <div class="photo-frame">
-                            <img src="" alt="Dimpal photo" id="bride-img">
+                            <img src="https://drive.google.com/thumbnail?id=1L4Ze5jnN9BbPgq6xxDHitjpiVSJrDGAw&sz=w800"
+                                alt="Dimpal photo" id="bride-img" style="display:block;">
                             <div class="ph-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                     <circle cx="12" cy="8" r="4" />
@@ -1649,7 +1735,8 @@
 
                     <div class="photo-card">
                         <div class="photo-frame photo-frame-center">
-                            <img src="" alt="Couple photo" id="couple-img">
+                            <img src="https://drive.google.com/thumbnail?id=1wSnBr3OSm3ZVfIpWRwf-09I7yk0rGCyf&sz=w800"
+                                alt="Couple photo" id="couple-img" style="display:block;">
                             <div class="ph-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="64"
                                     height="64">
@@ -1668,7 +1755,8 @@
                     <div class="photo-card">
 
                         <div class="photo-frame">
-                            <img src="" alt="Sushant photo" id="groom-img">
+                            <img src="https://drive.google.com/thumbnail?id=16or8plx0evnazDBY0sQ8SA7noX9yMYiz&sz=w800"
+                                alt="Sushant photo" id="groom-img" style="display:block;width: 127%;">
                             <div class="ph-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                     <circle cx="12" cy="8" r="4" />
@@ -1683,11 +1771,6 @@
 
                 </div>
 
-                <p class="photo-hint reveal">
-                    Replace the photo placeholders by setting the <code>src</code> attribute on each
-                    <code>&lt;img&gt;</code> element,
-                    or swap the placeholder divs with your own <code>&lt;img&gt;</code> tags.
-                </p>
             </div>
         </section>
 
@@ -1903,6 +1986,11 @@
                                 <button type="submit" class="rsvp-btn" id="rsvp-submit-btn">Send RSVP</button>
                             </div>
 
+                        </div>
+
+                        <div class="rsvp-loader hidden" id="rsvp-loader">
+                            <div class="rsvp-spinner"></div>
+                            <span class="rsvp-loader-text">Sending…</span>
                         </div>
                     </form>
 
@@ -2221,22 +2309,35 @@
                     return;
                 }
 
-                var btn = document.getElementById('rsvp-submit-btn');
-                btn.disabled = true;
-                btn.textContent = 'Sending…';
+                var messageField = form.querySelector('#rsvp-message');
+                var message = messageField ? messageField.value.trim() : '';
 
-                var formData = new FormData(form);
+                var payload = new URLSearchParams();
+                payload.append('name', name);
+                payload.append('attending', attending.value);
+                payload.append('guests', attending.value === 'Yes' ? guests : '0');
+                payload.append('message', message);
+
+                var btn = document.getElementById('rsvp-submit-btn');
+                var loader = document.getElementById('rsvp-loader');
+                var fields = form.querySelectorAll('input, select, textarea, button');
+
+                fields.forEach(function (f) { f.disabled = true; });
+                btn.textContent = 'Sending…';
+                loader.classList.remove('hidden');
 
                 try {
                     await fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
-                        body: formData,
+                        body: payload,
                         mode: 'no-cors'
                     });
 
                     form.classList.add('hidden');
                     document.getElementById('rsvp-success').classList.remove('hidden');
                 } catch (err) {
+                    loader.classList.add('hidden');
+                    fields.forEach(function (f) { f.disabled = false; });
                     btn.disabled = false;
                     btn.textContent = 'Send RSVP';
                     alert('Something went wrong. Please try again or contact us directly.');
