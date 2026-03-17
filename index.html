@@ -21,27 +21,27 @@
 
         :root {
             --gold: #B5697D;
-            /* muted dusty rose         */
+
             --gold-light: #D99AAE;
-            /* softer rose              */
+
             --gold-pale: #F5E0E6;
-            /* pale blush               */
+
             --gold-dark: #8A4055;
-            /* deep rose accent         */
+
             --cream: #FEFCFD;
-            /* near white               */
+
             --cream-dark: #F7EDF1;
-            /* faint blush              */
+
             --dark: #FAF3F6;
-            /* barely-there blush       */
+
             --dark2: #F7EDF2;
-            /* light pink section bg    */
+
             --dark3: #F0E0E7;
-            /* slightly stronger blush  */
+
             --text: #3A1625;
-            /* very dark plum           */
+
             --text-light: #7A4F60;
-            /* medium mauve             */
+
         }
 
         html {
@@ -57,9 +57,6 @@
             overflow-x: hidden;
         }
 
-        /* =========================================================
-           COVER PAGE
-        ========================================================= */
         #cover {
             position: fixed;
             inset: 0;
@@ -85,7 +82,6 @@
             pointer-events: none;
         }
 
-        /* Outer double border frame */
         .cover-frame {
             position: absolute;
             inset: 24px;
@@ -100,7 +96,6 @@
             border: 1px solid rgba(196, 118, 138, 0.15);
         }
 
-        /* Decorative SVG corners */
         .corner {
             position: absolute;
             width: 70px;
@@ -265,9 +260,6 @@
             animation: linePulse 2.2s ease infinite;
         }
 
-        /* =========================================================
-           MAIN INVITATION WRAPPER
-        ========================================================= */
         #invitation {
             opacity: 0;
             transition: opacity 1s ease 0.4s;
@@ -277,7 +269,6 @@
             opacity: 1;
         }
 
-        /* ---- Hero ---- */
         .hero {
             min-height: 100vh;
             background: var(--dark);
@@ -431,9 +422,6 @@
             animation: mouseDot 2s ease infinite;
         }
 
-        /* =========================================================
-           SHARED SECTION STYLES
-        ========================================================= */
         section {
             padding: 100px 20px;
         }
@@ -475,9 +463,6 @@
             margin: 0 auto 52px;
         }
 
-        /* =========================================================
-           COUPLE PHOTOS
-        ========================================================= */
         .photos-section {
             background: var(--cream-dark);
         }
@@ -529,7 +514,7 @@
             height: 100%;
             object-fit: cover;
             display: none;
-            /* shown when src is set */
+
         }
 
         .photo-frame-center {
@@ -577,9 +562,6 @@
             font-style: italic;
         }
 
-        /* =========================================================
-           WEDDING DETAILS
-        ========================================================= */
         .details-section {
             background: var(--dark);
             position: relative;
@@ -673,9 +655,6 @@
             font-weight: 600;
         }
 
-        /* =========================================================
-           COUNTDOWN
-        ========================================================= */
         .countdown-section {
             background: var(--cream);
             text-align: center;
@@ -720,9 +699,6 @@
             padding-top: 0.15em;
         }
 
-        /* =========================================================
-           OUR STORY
-        ========================================================= */
         .story-section {
             background: var(--cream-dark);
         }
@@ -749,9 +725,6 @@
             font-style: italic;
         }
 
-        /* =========================================================
-           CELEBRATIONS — EVENT CARDS
-        ========================================================= */
         .timeline-section {
             background: var(--dark2);
         }
@@ -845,11 +818,6 @@
             line-height: 1.7;
         }
 
-
-
-        /* =========================================================
-           RSVP
-        ========================================================= */
         .rsvp-section {
             background: var(--cream);
             text-align: center;
@@ -873,7 +841,6 @@
             box-shadow: 0 20px 80px rgba(0, 0, 0, 0.07);
         }
 
-        /* ── RSVP Custom Form ─────────────────────────────────── */
         .rsvp-form {
             padding: 52px 48px 56px;
             background: linear-gradient(135deg, #fff 0%, var(--cream-dark) 100%);
@@ -934,7 +901,6 @@
             line-height: 1.6;
         }
 
-        /* Radio group */
         .rsvp-radio-group {
             display: flex;
             gap: 18px;
@@ -958,12 +924,10 @@
             flex-shrink: 0;
         }
 
-        /* Guest count (hidden until "Yes" chosen) */
         #guest-count-field {
             display: none;
         }
 
-        /* Submit button */
         .rsvp-submit-row {
             grid-column: 1 / -1;
             display: flex;
@@ -994,7 +958,6 @@
             cursor: not-allowed;
         }
 
-        /* Success message */
         .rsvp-success {
             padding: 70px 40px;
             text-align: center;
@@ -1027,9 +990,6 @@
             display: none !important;
         }
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
         footer {
             background: var(--dark);
             padding: 80px 20px;
@@ -1073,7 +1033,6 @@
             background: linear-gradient(90deg, var(--gold-dark), transparent);
         }
 
-
         .foot-verse {
             font-size: 1.05rem;
             color: var(--text-light);
@@ -1088,9 +1047,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* =========================================================
-           SCROLL REVEAL
-        ========================================================= */
         .reveal {
             opacity: 0;
             transform: translateY(38px);
@@ -1102,9 +1058,6 @@
             transform: none;
         }
 
-        /* =========================================================
-           KEYFRAMES
-        ========================================================= */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1179,11 +1132,6 @@
             }
         }
 
-        /* =========================================================
-           ANIMATION VARIANTS & ENHANCEMENTS
-        ========================================================= */
-
-        /* Slide-from-left reveal */
         .reveal-left {
             opacity: 0;
             transform: translateX(-50px);
@@ -1195,7 +1143,6 @@
             transform: none;
         }
 
-        /* Slide-from-right reveal */
         .reveal-right {
             opacity: 0;
             transform: translateX(50px);
@@ -1207,7 +1154,6 @@
             transform: none;
         }
 
-        /* Scale-up reveal */
         .reveal-scale {
             opacity: 0;
             transform: scale(0.92);
@@ -1219,7 +1165,6 @@
             transform: none;
         }
 
-        /* Stagger grid children */
         .stagger-children>* {
             opacity: 0;
             transform: translateY(32px);
@@ -1255,7 +1200,6 @@
             transition-delay: 0.70s;
         }
 
-        /* s-bar: grow from center instead of sliding up */
         .s-bar.reveal {
             opacity: 1;
             transform: scaleX(0);
@@ -1267,7 +1211,6 @@
             transform: scaleX(1);
         }
 
-        /* Event symbol bounce on card hover */
         .event-symbol {
             display: block;
             transition: transform 0.25s ease;
@@ -1277,7 +1220,6 @@
             animation: symbolBounce 0.55s ease forwards;
         }
 
-        /* Detail icon hover glow */
         .detail-icon {
             transition: transform 0.35s ease, color 0.35s ease;
         }
@@ -1287,7 +1229,6 @@
             color: var(--gold-dark);
         }
 
-        /* Section title shimmer on reveal */
         .s-title.shimmer {
             background: linear-gradient(90deg, var(--text) 30%, var(--gold) 50%, var(--text) 70%);
             background-size: 200% auto;
@@ -1297,12 +1238,10 @@
             animation: titleShimmer 2.2s ease forwards;
         }
 
-        /* Countdown number tick flash */
         .cd-num.tick {
             animation: numTick 0.28s ease;
         }
 
-        /* New keyframes */
         @keyframes symbolBounce {
             0% {
                 transform: translateY(0) scale(1);
@@ -1343,19 +1282,12 @@
             }
         }
 
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        /* --- 768 px : tablets & landscape phones --- */
         @media (max-width: 768px) {
 
-            /* base font scale-up for tablets */
             html {
                 font-size: 17px;
             }
 
-            /* layout */
             .details-grid {
                 grid-template-columns: 1fr;
             }
@@ -1372,7 +1304,6 @@
                 max-width: 420px;
             }
 
-            /* cover */
             .cover-content {
                 padding: 30px 28px;
             }
@@ -1395,7 +1326,6 @@
                 height: 50px;
             }
 
-            /* hero */
             .hero-eyebrow {
                 letter-spacing: 0.22em;
                 font-size: 1.1rem;
@@ -1409,7 +1339,6 @@
                 letter-spacing: 0.07em;
             }
 
-            /* sections */
             section {
                 padding: 72px 18px;
             }
@@ -1419,17 +1348,14 @@
                 font-size: 1.1rem;
             }
 
-            /* detail cards */
             .detail-card {
                 padding: 36px 24px;
             }
 
-            /* events grid → 2 columns on tablet */
             .events-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            /* countdown */
             .cd-sep {
                 display: none;
             }
@@ -1439,15 +1365,12 @@
             }
         }
 
-        /* --- 480 px : small phones --- */
         @media (max-width: 480px) {
 
-            /* base font scale-up for small phones */
             html {
                 font-size: 18px;
             }
 
-            /* cover */
             .cover-frame {
                 inset: 10px;
             }
@@ -1485,7 +1408,6 @@
                 height: 38px;
             }
 
-            /* hero */
             .hero-box {
                 padding: 28px 16px;
             }
@@ -1495,7 +1417,6 @@
                 letter-spacing: 0.15em;
             }
 
-            /* sections */
             section {
                 padding: 56px 16px;
             }
@@ -1504,7 +1425,6 @@
                 margin-bottom: 36px;
             }
 
-            /* photos */
             .photos-grid {
                 max-width: 260px;
             }
@@ -1517,7 +1437,6 @@
                 word-break: break-all;
             }
 
-            /* detail cards */
             .detail-card {
                 padding: 28px 16px;
             }
@@ -1526,7 +1445,6 @@
                 font-size: 1.15rem;
             }
 
-            /* countdown */
             .cd-item {
                 min-width: 68px;
             }
@@ -1535,7 +1453,6 @@
                 gap: 12px;
             }
 
-            /* events grid → 1 column on small phones */
             .events-grid {
                 grid-template-columns: 1fr;
                 max-width: 340px;
@@ -1543,7 +1460,6 @@
                 margin-right: auto;
             }
 
-            /* rsvp */
             .rsvp-form {
                 padding: 36px 20px 40px;
             }
@@ -1552,13 +1468,11 @@
                 font-size: 1.15rem;
             }
 
-            /* footer */
             footer {
                 padding: 60px 16px;
             }
         }
 
-        /* --- 375 px : iPhone SE / very narrow phones --- */
         @media (max-width: 375px) {
             .cover-names {
                 font-size: clamp(2.8rem, 13vw, 4rem);
@@ -1582,7 +1496,6 @@
             }
         }
 
-        /* --- landscape phones with little height --- */
         @media (max-height: 500px) and (max-width: 900px) {
             .cover-scroll {
                 display: none;
@@ -1613,23 +1526,18 @@
 
 <body>
 
-    <!-- =============================================================
-     COVER PAGE
-============================================================= -->
     <div id="cover">
         <canvas id="petals-canvas"></canvas>
 
-        <!-- double-line border frame -->
         <div class="cover-frame"></div>
 
-        <!-- corner ornaments -->
         <svg class="corner corner-tl" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 68 L2 2 L68 2" stroke="currentColor" stroke-width="1" fill="none" />
             <path d="M12 44 Q12 12 44 12" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5" />
             <circle cx="2" cy="2" r="3" fill="currentColor" />
             <circle cx="68" cy="2" r="1.5" fill="currentColor" opacity="0.4" />
             <circle cx="2" cy="68" r="1.5" fill="currentColor" opacity="0.4" />
-            <!-- small floral detail -->
+
             <path d="M16 22 C16 17 22 17 22 22 C22 17 28 17 28 22 C28 27 22 30 22 30 C22 30 16 27 16 22Z"
                 fill="currentColor" opacity="0.35" />
         </svg>
@@ -1661,7 +1569,6 @@
                 fill="currentColor" opacity="0.35" />
         </svg>
 
-        <!-- Content -->
         <div class="cover-content">
             <p class="cover-label">You are cordially invited to the wedding of</p>
 
@@ -1682,16 +1589,11 @@
             <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
         </div>
 
-    </div><!-- /cover -->
+    </div>
 
-
-    <!-- =============================================================
-     MAIN INVITATION
-============================================================= -->
     <div id="invitation">
         <canvas id="invitation-petals-canvas"></canvas>
 
-        <!-- ── HERO ──────────────────────────────────────────────── -->
         <section class="hero">
             <div class="hero-box">
                 <p class="hero-eyebrow">Together with their families</p>
@@ -1720,10 +1622,8 @@
                 </p>
             </div>
 
-
         </section>
 
-        <!-- ── COUPLE PHOTOS ─────────────────────────────────────── -->
         <section class="photos-section">
             <div class="container">
                 <p class="s-label reveal">Meet the Couple</p>
@@ -1732,13 +1632,8 @@
 
                 <div class="photos-grid stagger-children">
 
-                    <!-- Bride -->
                     <div class="photo-card">
-                        <!--
-                        TO ADD DIMPAL'S PHOTO:
-                        Replace this div with:
-                        <img src="bride.jpg" alt="Dimpal" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
-                    -->
+
                         <div class="photo-frame">
                             <img src="" alt="Dimpal photo" id="bride-img">
                             <div class="ph-icon">
@@ -1752,7 +1647,6 @@
                         <p class="photo-name">Dimpal</p>
                     </div>
 
-                    <!-- Couple (centre) -->
                     <div class="photo-card">
                         <div class="photo-frame photo-frame-center">
                             <img src="" alt="Couple photo" id="couple-img">
@@ -1771,13 +1665,8 @@
                         <p class="photo-name" style="font-size:2.4rem">Forever &amp; Always</p>
                     </div>
 
-                    <!-- Groom -->
                     <div class="photo-card">
-                        <!--
-                        TO ADD SUSHANT'S PHOTO:
-                        Replace this div with:
-                        <img src="groom.jpg" alt="Sushant" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
-                    -->
+
                         <div class="photo-frame">
                             <img src="" alt="Sushant photo" id="groom-img">
                             <div class="ph-icon">
@@ -1802,7 +1691,6 @@
             </div>
         </section>
 
-        <!-- ── WEDDING DETAILS ───────────────────────────────────── -->
         <section class="details-section">
             <div class="container">
                 <p class="s-label reveal" style="color:var(--gold)">Save the Date</p>
@@ -1811,7 +1699,6 @@
 
                 <div class="details-grid reveal" style="grid-template-columns:1fr;max-width:520px;margin:60px auto 0;">
 
-                    <!-- Ceremony -->
                     <div class="detail-card">
                         <div class="detail-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="40"
@@ -1847,9 +1734,6 @@
             </div>
         </section>
 
-
-
-        <!-- ── COUNTDOWN ─────────────────────────────────────────── -->
         <section class="countdown-section">
             <div class="container">
                 <p class="s-label reveal">Counting Down</p>
@@ -1880,7 +1764,6 @@
             </div>
         </section>
 
-        <!-- ── OUR STORY ─────────────────────────────────────────── -->
         <section class="story-section">
             <div class="container">
                 <p class="s-label reveal">Our Journey</p>
@@ -1905,7 +1788,6 @@
             </div>
         </section>
 
-        <!-- ── CELEBRATIONS ──────────────────────────────────────── -->
         <section class="timeline-section">
             <div class="container">
                 <p class="s-label reveal">19th &mdash; 21st April 2026</p>
@@ -1914,7 +1796,6 @@
 
                 <div class="events-grid stagger-children">
 
-                    <!-- Mehendi -->
                     <div class="event-card">
                         <span class="event-date-chip">April 19</span>
                         <span class="event-symbol">🌿</span>
@@ -1923,7 +1804,6 @@
                         <p class="event-tagline">&ldquo;Where hands bloom with stories of love&rdquo;</p>
                     </div>
 
-                    <!-- Sangeet -->
                     <div class="event-card">
                         <span class="event-date-chip">April 19</span>
                         <span class="event-symbol">🎶</span>
@@ -1932,7 +1812,6 @@
                         <p class="event-tagline">&ldquo;When music fills the air and memories begin&rdquo;</p>
                     </div>
 
-                    <!-- Haldi -->
                     <div class="event-card">
                         <span class="event-date-chip">April 20</span>
                         <span class="event-symbol">🌼</span>
@@ -1941,7 +1820,6 @@
                         <p class="event-tagline">&ldquo;A golden blessing before forever begins&rdquo;</p>
                     </div>
 
-                    <!-- Barat -->
                     <div class="event-card">
                         <span class="event-date-chip">April 20</span>
                         <span class="event-symbol">🐴</span>
@@ -1950,7 +1828,6 @@
                         <p class="event-tagline">&ldquo;He arrives in grandeur &mdash; her forever is near&rdquo;</p>
                     </div>
 
-                    <!-- Jaimal -->
                     <div class="event-card">
                         <span class="event-date-chip">April 20</span>
                         <span class="event-symbol">🌸</span>
@@ -1959,7 +1836,6 @@
                         <p class="event-tagline">&ldquo;Two garlands, one destiny, one eternal love&rdquo;</p>
                     </div>
 
-                    <!-- Vidaai -->
                     <div class="event-card">
                         <span class="event-date-chip">April 21</span>
                         <span class="event-symbol">✨</span>
@@ -1972,9 +1848,6 @@
             </div>
         </section>
 
-        <!-- ── DRESS CODE section removed ────────────────────────── -->
-
-        <!-- ── RSVP ──────────────────────────────────────────────── -->
         <section class="rsvp-section">
             <div class="container">
                 <p class="s-label reveal">Kindly Reply By April 15, 2026</p>
@@ -1989,18 +1862,15 @@
 
                 <div class="rsvp-wrap reveal-scale">
 
-                    <!-- Custom RSVP Form → data saved to Google Sheet via Apps Script -->
                     <form class="rsvp-form" id="rsvp-form" novalidate>
                         <div class="rsvp-form-grid">
 
-                            <!-- Full Name -->
                             <div class="rsvp-field">
                                 <label for="rsvp-name">Your Full Name(s) *</label>
                                 <input type="text" id="rsvp-name" name="name" required
                                     placeholder="e.g. Priya &amp; Rahul Sharma">
                             </div>
 
-                            <!-- Attending -->
                             <div class="rsvp-field">
                                 <label>Will you be attending the wedding celebration? *</label>
                                 <div class="rsvp-radio-group" style="flex-direction:column;gap:12px;margin-top:6px;">
@@ -2017,14 +1887,12 @@
                                 </div>
                             </div>
 
-                            <!-- Number of Adults (shown only when attending = Yes) -->
                             <div class="rsvp-field" id="guest-count-field">
                                 <label for="rsvp-guests">How many adults (including yourself) will be attending?
                                     *</label>
                                 <input type="number" id="rsvp-guests" name="guests" min="1" max="20" placeholder="1">
                             </div>
 
-                            <!-- Message -->
                             <div class="rsvp-field">
                                 <label for="rsvp-message">Any additional messages or notes for Dimpal &amp;
                                     Sushant?</label>
@@ -2032,7 +1900,6 @@
                                     placeholder="Share your wishes, blessings, or any special requirements…"></textarea>
                             </div>
 
-                            <!-- Submit -->
                             <div class="rsvp-submit-row">
                                 <button type="submit" class="rsvp-btn" id="rsvp-submit-btn">Send RSVP</button>
                             </div>
@@ -2040,7 +1907,6 @@
                         </div>
                     </form>
 
-                    <!-- Closed state (shown after April 15 deadline) -->
                     <div class="rsvp-success hidden" id="rsvp-closed">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
                             <circle cx="12" cy="12" r="10" />
@@ -2051,7 +1917,6 @@
                             directly to let them know.</p>
                     </div>
 
-                    <!-- Success state (shown after submission) -->
                     <div class="rsvp-success hidden" id="rsvp-success">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
                             <path
@@ -2068,7 +1933,6 @@
             </div>
         </section>
 
-        <!-- ── FOOTER ────────────────────────────────────────────── -->
         <footer>
             <div class="foot-orn">
                 <div class="foot-orn-line l"></div>
@@ -2093,13 +1957,10 @@
             <p class="foot-credit">Made with love for our special day</p>
         </footer>
 
-    </div><!-- /invitation -->
-
+    </div>
 
     <script>
-        /* =====================================================================
-           FALLING GOLD PETALS — canvas animation on the cover page
-        ===================================================================== */
+
         (function () {
             const canvas = document.getElementById('petals-canvas');
             const ctx = canvas.getContext('2d');
@@ -2169,10 +2030,7 @@
             window._stopPetals = () => cancelAnimationFrame(raf);
         }());
 
-        /* =====================================================================
-           OPEN INVITATION — transition from cover to main content
-        ===================================================================== */
-        document.body.style.overflow = 'hidden';   // lock scroll on cover
+        document.body.style.overflow = 'hidden';
 
         function openInvitation() {
             const cover = document.getElementById('cover');
@@ -2182,19 +2040,13 @@
             inv.classList.add('visible');
             document.body.style.overflow = 'auto';
 
-            // stop petal animation after fade
             setTimeout(() => { if (window._stopPetals) window._stopPetals(); }, 1500);
 
-            // start invitation-wide petals
             startInvitationPetals();
 
-            // boot intersection-observer for reveal animations
             setTimeout(initReveal, 300);
         }
 
-        /* =====================================================================
-           INVITATION PETALS — fixed canvas over entire invitation
-        ===================================================================== */
         function startInvitationPetals() {
             const canvas = document.getElementById('invitation-petals-canvas');
             if (!canvas) return;
@@ -2261,9 +2113,6 @@
             requestAnimationFrame(draw);
         }
 
-        /* =====================================================================
-           SCROLL REVEAL
-        ===================================================================== */
         function initReveal() {
             const sel = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children';
             const els = document.querySelectorAll(sel);
@@ -2271,7 +2120,7 @@
                 entries => entries.forEach(e => {
                     if (e.isIntersecting) {
                         e.target.classList.add('visible');
-                        // shimmer effect on section titles
+
                         if (e.target.classList.contains('s-title')) {
                             e.target.classList.add('shimmer');
                         }
@@ -2282,7 +2131,6 @@
             );
             els.forEach(el => io.observe(el));
 
-            // Parallax on hero background
             const hero = document.querySelector('.hero');
             if (hero) {
                 window.addEventListener('scroll', () => {
@@ -2291,11 +2139,7 @@
             }
         }
 
-        /* =====================================================================
-           COUNTDOWN TIMER
-           ↳  Change the weddingDate value to your actual wedding date/time
-        ===================================================================== */
-        const weddingDate = new Date('2026-04-20T20:00:00');   // ← edit this
+        const weddingDate = new Date('2026-04-20T20:00:00');
 
         function setNum(id, val) {
             const el = document.getElementById(id);
@@ -2303,7 +2147,7 @@
             if (el.textContent !== val) {
                 el.textContent = val;
                 el.classList.remove('tick');
-                void el.offsetWidth; // reflow to restart animation
+                void el.offsetWidth;
                 el.classList.add('tick');
             }
         }
@@ -2329,42 +2173,11 @@
         tick();
         setInterval(tick, 1000);
 
-        /* =====================================================================
-           RSVP FORM — submits to Google Sheet via Apps Script Web App
-           ─────────────────────────────────────────────────────────────────────
-           SETUP (one-time, ~3 minutes):
-           1. Open your Google Sheet → Extensions → Apps Script
-           2. Paste the doPost() function from the comment block below
-           3. Deploy → New deployment → Web app
-              - Execute as: Me   |   Who has access: Anyone
-           4. Copy the Web App URL and paste it into APPS_SCRIPT_URL below
-           ─────────────────────────────────────────────────────────────────────
-           Apps Script code to paste:
-           ─────────────────────────────────────────────────────────────────────
-           function doPost(e) {
-             var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-             var data  = e.parameter;
-             sheet.appendRow([
-               new Date(),
-               data.name    || '',
-               data.email   || '',
-               data.phone   || '',
-               data.attending || '',
-               data.guests  || '',
-               data.message || ''
-             ]);
-             return ContentService
-               .createTextOutput(JSON.stringify({ result: 'success' }))
-               .setMimeType(ContentService.MimeType.JSON);
-           }
-           ─────────────────────────────────────────────────────────────────────
-        ===================================================================== */
         (function () {
-            // ← Paste your deployed Apps Script Web App URL here
+
             var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyuIS5Oh2Ulpzs4G19k2zyNFZlNptu4F6x3XBr49SuPKfIpCi8ZcbCpcnPLpfCFceYx/exec';
 
-            // ── Deadline check: hide form after April 15, 2026 ──────────
-            var DEADLINE = new Date('2026-04-16T00:00:00');  // midnight after Apr 15
+            var DEADLINE = new Date('2026-04-16T00:00:00');
             if (new Date() >= DEADLINE) {
                 var f = document.getElementById('rsvp-form');
                 var c = document.getElementById('rsvp-closed');
@@ -2384,7 +2197,6 @@
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
-                // Basic client-side validation
                 var name = form.querySelector('#rsvp-name').value.trim();
                 var attending = form.querySelector('input[name="attending"]:checked');
                 var guestsField = form.querySelector('#rsvp-guests');
@@ -2420,9 +2232,9 @@
                     await fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
                         body: formData,
-                        mode: 'no-cors'   // Apps Script redirect requires no-cors
+                        mode: 'no-cors'
                     });
-                    // no-cors means we can't read status, assume success
+
                     form.classList.add('hidden');
                     document.getElementById('rsvp-success').classList.remove('hidden');
                 } catch (err) {
