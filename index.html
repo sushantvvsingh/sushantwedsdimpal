@@ -1,233 +1,1741 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dimpal & Sushant | Wedding</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bride Name &amp; Groom Name — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8C97A;
+            --gold-pale: #F5E6C2;
+            --gold-dark: #9B7A2F;
+            --cream: #FDF8F0;
+            --cream-dark: #F0E8D0;
+            --dark: #100C05;
+            --dark2: #1E160B;
+            --dark3: #2C200F;
+            --text: #3A2A18;
+            --text-light: #7A6248;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Poppins;background:#0c0c10;color:#fff;overflow-x:hidden}
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-h1,h2,h3{font-family:'Playfair Display'}
-section{padding:100px 20px;text-align:center}
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
-/* INTRO SCREEN */
-#intro{position:fixed;inset:0;background:radial-gradient(circle,#1b1b24,#060608);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:9999;padding:20px}
+        /* =========================================================
+           COVER PAGE
+        ========================================================= */
+        #cover {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, #2C1C0A 0%, #100C05 60%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 1.3s ease, visibility 1.3s ease;
+            overflow: hidden;
+        }
 
-.monogram{font-family:'Great Vibes';font-size:100px;color:#ff4d8d;animation:glow 4s infinite alternate}
+        #cover.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
 
-@keyframes glow{from{filter:drop-shadow(0 0 5px #ff4d8d)}to{filter:drop-shadow(0 0 30px #ff4d8d)}}
+        #petals-canvas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
 
-#enterBtn{margin-top:40px;padding:14px 36px;font-size:18px;border:none;border-radius:40px;background:linear-gradient(45deg,#ff4d8d,#ff7ca9);color:white;cursor:pointer}
+        /* Outer double border frame */
+        .cover-frame {
+            position: absolute;
+            inset: 24px;
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            pointer-events: none;
+        }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e') center/cover no-repeat;padding:20px;text-align:center}
-.hero h1{font-size:85px}
-.hero p{font-size:22px;margin-top:10px}
-.countdown{margin-top:25px;font-size:32px;color:#ff7ca9}
+        .cover-frame::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
 
-.cinematic{max-width:900px;margin:auto;font-size:20px;line-height:1.8;opacity:0;transform:translateY(60px);transition:1.2s}
-.cinematic.show{opacity:1;transform:translateY(0)}
+        /* Decorative SVG corners */
+        .corner {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            color: rgba(201, 168, 76, 0.55);
+        }
 
-.timeline{max-width:800px;margin:auto;display:flex;flex-direction:column;gap:25px;margin-top:40px}
-.event{background:#191922;padding:22px;border-radius:12px}
-.event h3{color:#ff7ca9;margin-bottom:10px}
+        .corner-tl {
+            top: 24px;
+            left: 24px;
+        }
 
-/* 3D CAROUSEL */
-.carousel{perspective:1000px;height:350px;position:relative;margin-top:40px}
-.carousel img{position:absolute;left:50%;top:50%;width:260px;height:260px;object-fit:cover;border-radius:12px;transform-style:preserve-3d;transition:1s}
+        .corner-tr {
+            top: 24px;
+            right: 24px;
+            transform: scaleX(-1);
+        }
 
-/* GALLERY */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:1100px;margin:auto}
-.gallery img{width:100%;height:250px;object-fit:cover;border-radius:10px}
+        .corner-bl {
+            bottom: 24px;
+            left: 24px;
+            transform: scaleY(-1);
+        }
 
-/* RSVP */
-.form{max-width:420px;margin:auto;display:flex;flex-direction:column;gap:15px;margin-top:25px}
-.form input,.form textarea{padding:12px;border-radius:6px;border:none;font-size:16px}
-.form button{padding:14px;border:none;border-radius:30px;background:#ff4d8d;color:white;font-weight:600;cursor:pointer}
+        .corner-br {
+            bottom: 24px;
+            right: 24px;
+            transform: scale(-1, -1);
+        }
 
-/* CONFETTI */
-.confetti{position:fixed;width:10px;height:10px;background:red;top:-10px;animation:fall linear forwards}
-@keyframes fall{to{transform:translateY(100vh)}}
+        .cover-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px 60px;
+        }
 
-footer{background:#15151b;padding:40px;margin-top:80px;color:#aaa}
+        .cover-label {
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            font-weight: 300;
+            letter-spacing: 0.6em;
+            color: rgba(201, 168, 76, 0.65);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.2s forwards;
+        }
 
-/* ---------------- MOBILE OPTIMIZATION ---------------- */
+        .cover-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 11vw, 7.5rem);
+            color: var(--gold);
+            line-height: 1.05;
+            text-shadow: 0 0 80px rgba(201, 168, 76, 0.25);
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.5s forwards;
+        }
 
-@media (max-width:1024px){
-.hero h1{font-size:64px}
-.carousel img{width:220px;height:220px}
-}
+        .cover-amp {
+            font-size: 0.75em;
+            color: rgba(201, 168, 76, 0.5);
+            display: block;
+        }
 
-@media (max-width:768px){
-section{padding:80px 16px}
+        .cover-hr {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin: 28px auto;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 0.8s forwards;
+        }
 
-.monogram{font-size:72px}
+        .cover-hr-line {
+            width: 90px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.7), transparent);
+        }
 
-.hero h1{font-size:48px}
-.hero p{font-size:18px}
-.countdown{font-size:24px}
+        .cover-hr-diamond {
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            opacity: 0.8;
+        }
 
-.cinematic{font-size:17px}
+        .cover-date {
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: rgba(253, 248, 240, 0.65);
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 1s forwards;
+        }
 
-.timeline{gap:18px}
-.event{padding:18px}
+        .open-btn {
+            display: inline-block;
+            padding: 15px 52px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.45s ease;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 1.2s forwards;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
 
-.carousel{height:280px}
-.carousel img{width:180px;height:180px}
+        .open-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            transform: translateX(-101%);
+            transition: transform 0.45s ease;
+            z-index: -1;
+        }
 
-.gallery{grid-template-columns:repeat(2,1fr)}
-.gallery img{height:180px}
+        .open-btn:hover {
+            color: var(--dark);
+        }
 
-.form input,.form textarea{font-size:15px}
+        .open-btn:hover::before {
+            transform: translateX(0);
+        }
 
-#enterBtn{padding:12px 26px;font-size:16px}
-}
+        .cover-scroll {
+            position: absolute;
+            bottom: 44px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 1.4s ease 1.6s forwards;
+        }
 
-@media (max-width:480px){
-.hero h1{font-size:36px}
-.hero p{font-size:16px}
-.countdown{font-size:20px}
+        .cover-scroll span {
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(201, 168, 76, 0.4);
+            margin-bottom: 10px;
+        }
 
-.gallery{grid-template-columns:1fr 1fr}
-.gallery img{height:150px}
+        .cover-line {
+            width: 1px;
+            height: 44px;
+            background: linear-gradient(180deg, var(--gold), transparent);
+            margin: 0 auto;
+            animation: linePulse 2.2s ease infinite;
+        }
 
-.carousel img{width:150px;height:150px}
+        /* =========================================================
+           MAIN INVITATION WRAPPER
+        ========================================================= */
+        #invitation {
+            opacity: 0;
+            transition: opacity 1s ease 0.4s;
+        }
 
-.monogram{font-size:58px}
-}
+        #invitation.visible {
+            opacity: 1;
+        }
 
-</style>
+        /* ---- Hero ---- */
+        .hero {
+            min-height: 100vh;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 50%, rgba(201, 168, 76, 0.07) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 50%, rgba(201, 168, 76, 0.07) 0%, transparent 55%);
+        }
+
+        .hero-box {
+            border: 1px solid rgba(201, 168, 76, 0.28);
+            padding: clamp(40px, 6vw, 80px) clamp(30px, 7vw, 100px);
+            max-width: 820px;
+            width: 100%;
+            position: relative;
+        }
+
+        .hero-box::before,
+        .hero-box::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: rgba(201, 168, 76, 0.7);
+            border-style: solid;
+        }
+
+        .hero-box::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .hero-box::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .hero-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            color: var(--cream);
+            line-height: 1.1;
+        }
+
+        .hero-names .amp {
+            color: var(--gold);
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 22px 0;
+            color: var(--gold);
+        }
+
+        .orn-line {
+            flex: 1;
+            max-width: 90px;
+            height: 1px;
+        }
+
+        .orn-line.l {
+            background: linear-gradient(90deg, transparent, var(--gold-dark));
+        }
+
+        .orn-line.r {
+            background: linear-gradient(90deg, var(--gold-dark), transparent);
+        }
+
+        .hero-date {
+            font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: rgba(253, 248, 240, 0.75);
+            margin-bottom: 8px;
+        }
+
+        .hero-location {
+            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-scroll span {
+            font-size: 0.68rem;
+            letter-spacing: 0.3em;
+            color: rgba(201, 168, 76, 0.45);
+            text-transform: uppercase;
+        }
+
+        .mouse {
+            width: 26px;
+            height: 40px;
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            border-radius: 13px;
+            display: flex;
+            justify-content: center;
+            padding-top: 7px;
+        }
+
+        .mouse-dot-inner {
+            width: 3px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+            animation: mouseDot 2s ease infinite;
+        }
+
+        /* =========================================================
+           SHARED SECTION STYLES
+        ========================================================= */
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .s-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .s-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .s-title.lt {
+            color: var(--cream);
+        }
+
+        .s-bar {
+            width: 56px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 52px;
+        }
+
+        /* =========================================================
+           COUPLE PHOTOS
+        ========================================================= */
+        .photos-section {
+            background: var(--cream-dark);
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .photo-card {
+            text-align: center;
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(150deg, #e4cfa0, #c8a86e);
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            pointer-events: none;
+        }
+
+        .photo-frame img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            /* shown when src is set */
+        }
+
+        .photo-frame-center {
+            aspect-ratio: 3/4;
+            background: linear-gradient(150deg, #2a1a08, #3a280e);
+        }
+
+        .photo-frame-center .ph-icon {
+            color: rgba(201, 168, 76, 0.5);
+        }
+
+        .photo-frame-center .ph-text {
+            color: rgba(253, 248, 240, 0.55);
+        }
+
+        .ph-icon {
+            color: rgba(120, 90, 50, 0.55);
+        }
+
+        .ph-icon svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .ph-text {
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(80, 55, 25, 0.55);
+        }
+
+        .photo-name {
+            margin-top: 16px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--gold-dark);
+        }
+
+        .photo-hint {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.82rem;
+            color: #b0a088;
+            letter-spacing: 0.08em;
+            font-style: italic;
+        }
+
+        /* =========================================================
+           WEDDING DETAILS
+        ========================================================= */
+        .details-section {
+            background: var(--dark);
+            position: relative;
+        }
+
+        .details-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.4), transparent);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            margin-top: 60px;
+        }
+
+        .detail-card {
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .detail-card:hover {
+            border-color: rgba(201, 168, 76, 0.5);
+            background: rgba(201, 168, 76, 0.025);
+        }
+
+        .detail-card::before,
+        .detail-card::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-style: solid;
+            border-color: rgba(201, 168, 76, 0.65);
+        }
+
+        .detail-card::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .detail-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 20px;
+            color: var(--gold);
+        }
+
+        .detail-tag {
+            font-size: 0.73rem;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        .detail-body {
+            font-size: 1.08rem;
+            font-weight: 300;
+            color: rgba(253, 248, 240, 0.65);
+            line-height: 1.9;
+        }
+
+        .detail-body strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        /* =========================================================
+           COUNTDOWN
+        ========================================================= */
+        .countdown-section {
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .countdown-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .cd-item {
+            min-width: 90px;
+        }
+
+        .cd-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            display: block;
+            line-height: 1;
+        }
+
+        .cd-lbl {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 8px;
+            display: block;
+        }
+
+        .cd-sep {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: rgba(201, 168, 76, 0.3);
+            line-height: 1;
+            padding-top: 0.15em;
+        }
+
+        /* =========================================================
+           OUR STORY
+        ========================================================= */
+        .story-section {
+            background: var(--cream-dark);
+        }
+
+        .story-wrap {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-quote {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--gold-dark);
+            line-height: 1.4;
+            margin: 32px 0;
+        }
+
+        .story-body {
+            font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        /* =========================================================
+           SCHEDULE / TIMELINE
+        ========================================================= */
+        .timeline-section {
+            background: var(--dark2);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 680px;
+            margin: 60px auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--gold-dark) 15%, var(--gold-dark) 85%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .tl-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .tl-item.right {
+            flex-direction: row-reverse;
+        }
+
+        .tl-content {
+            flex: 1;
+            text-align: right;
+            padding-right: 44px;
+        }
+
+        .tl-item.right .tl-content {
+            text-align: left;
+            padding-right: 0;
+            padding-left: 44px;
+        }
+
+        .tl-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 2px solid var(--dark2);
+            outline: 1px solid var(--gold-dark);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .tl-spacer {
+            flex: 1;
+        }
+
+        .tl-time {
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .tl-event {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 3px;
+        }
+
+        .tl-note {
+            font-size: 0.93rem;
+            font-weight: 300;
+            color: rgba(253, 248, 240, 0.45);
+        }
+
+        /* =========================================================
+           DRESS CODE
+        ========================================================= */
+        .dress-section {
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .dress-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 780px;
+            margin: 50px auto 0;
+        }
+
+        .dress-item {
+            padding: 28px 18px;
+            border: 1px solid rgba(201, 168, 76, 0.14);
+            transition: border-color 0.3s;
+        }
+
+        .dress-item:hover {
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        .dress-swatch {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .dress-name {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--cream);
+            letter-spacing: 0.08em;
+        }
+
+        /* =========================================================
+           RSVP
+        ========================================================= */
+        .rsvp-section {
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .rsvp-intro {
+            max-width: 580px;
+            margin: 0 auto 48px;
+            font-size: 1.13rem;
+            font-style: italic;
+            line-height: 1.85;
+            color: var(--text-light);
+        }
+
+        .rsvp-wrap {
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.07);
+        }
+
+        .rsvp-wrap iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* placeholder shown until Google Form is added */
+        .rsvp-placeholder {
+            padding: 70px 40px;
+            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+            text-align: center;
+        }
+
+        .rsvp-placeholder svg {
+            width: 56px;
+            height: 56px;
+            color: var(--gold);
+            margin: 0 auto 22px;
+            display: block;
+        }
+
+        .rsvp-placeholder h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .rsvp-placeholder p {
+            color: var(--text-light);
+            font-size: 0.97rem;
+            line-height: 1.65;
+            max-width: 420px;
+            margin: 0 auto 14px;
+        }
+
+        .rsvp-placeholder code {
+            background: rgba(201, 168, 76, 0.15);
+            padding: 2px 7px;
+            font-size: 0.88em;
+            color: var(--gold-dark);
+            border-radius: 3px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+        footer {
+            background: var(--dark);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(201, 168, 76, 0.14);
+        }
+
+        .foot-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .foot-date {
+            font-size: 0.85rem;
+            letter-spacing: 0.35em;
+            color: rgba(253, 248, 240, 0.45);
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        .foot-orn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .foot-orn-line {
+            width: 80px;
+            height: 1px;
+        }
+
+        .foot-orn-line.l {
+            background: linear-gradient(90deg, transparent, var(--gold-dark));
+        }
+
+        .foot-orn-line.r {
+            background: linear-gradient(90deg, var(--gold-dark), transparent);
+        }
+
+        .foot-verse {
+            font-size: 0.88rem;
+            color: rgba(253, 248, 240, 0.38);
+            letter-spacing: 0.12em;
+            margin-bottom: 28px;
+        }
+
+        .foot-credit {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.1em;
+        }
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(38px);
+            transition: opacity 0.85s ease, transform 0.85s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* =========================================================
+           KEYFRAMES
+        ========================================================= */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes linePulse {
+
+            0%,
+            100% {
+                opacity: 0.25;
+                transform: scaleY(0.7);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scaleY(1.2);
+            }
+        }
+
+        @keyframes mouseDot {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(14px);
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dress-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 420px;
+            }
+
+            /* Timeline goes single-side */
+            .timeline::before {
+                left: 18px;
+                transform: none;
+            }
+
+            .tl-item,
+            .tl-item.right {
+                flex-direction: column;
+                padding-left: 50px;
+            }
+
+            .tl-dot {
+                left: 18px;
+                transform: none;
+            }
+
+            .tl-content,
+            .tl-item.right .tl-content {
+                text-align: left;
+                padding: 0;
+            }
+
+            .tl-spacer {
+                display: none;
+            }
+
+            .cd-sep {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover-frame {
+                inset: 12px;
+            }
+
+            .hero-box {
+                padding: 30px 20px;
+            }
+
+            .dress-grid {
+                grid-template-columns: 1fr;
+                max-width: 260px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div id="intro">
-<div class="monogram">DS</div>
-<h2>Dimpal & Sushant</h2>
-<p>You are invited to celebrate our wedding</p>
-<button id="enterBtn">Open Invitation</button>
-</div>
+    <!-- =============================================================
+     COVER PAGE
+============================================================= -->
+    <div id="cover">
+        <canvas id="petals-canvas"></canvas>
 
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_8c0a3e1f55.mp3" type="audio/mpeg">
-</audio>
+        <!-- double-line border frame -->
+        <div class="cover-frame"></div>
 
-<section class="hero">
-<h1>Dimpal ❤ Sushant</h1>
-<p>Save the Date</p>
-<p>20 April 2026</p>
-<div class="countdown" id="countdown"></div>
-</section>
+        <!-- corner ornaments -->
+        <svg class="corner corner-tl" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 68 L2 2 L68 2" stroke="currentColor" stroke-width="1" fill="none" />
+            <path d="M12 44 Q12 12 44 12" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5" />
+            <circle cx="2" cy="2" r="3" fill="currentColor" />
+            <circle cx="68" cy="2" r="1.5" fill="currentColor" opacity="0.4" />
+            <circle cx="2" cy="68" r="1.5" fill="currentColor" opacity="0.4" />
+            <!-- small floral detail -->
+            <path d="M16 22 C16 17 22 17 22 22 C22 17 28 17 28 22 C28 27 22 30 22 30 C22 30 16 27 16 22Z"
+                fill="currentColor" opacity="0.35" />
+        </svg>
+        <svg class="corner corner-tr" viewBox="0 0 70 70" fill="none">
+            <path d="M2 68 L2 2 L68 2" stroke="currentColor" stroke-width="1" fill="none" />
+            <path d="M12 44 Q12 12 44 12" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5" />
+            <circle cx="2" cy="2" r="3" fill="currentColor" />
+            <circle cx="68" cy="2" r="1.5" fill="currentColor" opacity="0.4" />
+            <circle cx="2" cy="68" r="1.5" fill="currentColor" opacity="0.4" />
+            <path d="M16 22 C16 17 22 17 22 22 C22 17 28 17 28 22 C28 27 22 30 22 30 C22 30 16 27 16 22Z"
+                fill="currentColor" opacity="0.35" />
+        </svg>
+        <svg class="corner corner-bl" viewBox="0 0 70 70" fill="none">
+            <path d="M2 68 L2 2 L68 2" stroke="currentColor" stroke-width="1" fill="none" />
+            <path d="M12 44 Q12 12 44 12" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5" />
+            <circle cx="2" cy="2" r="3" fill="currentColor" />
+            <circle cx="68" cy="2" r="1.5" fill="currentColor" opacity="0.4" />
+            <circle cx="2" cy="68" r="1.5" fill="currentColor" opacity="0.4" />
+            <path d="M16 22 C16 17 22 17 22 22 C22 17 28 17 28 22 C28 27 22 30 22 30 C22 30 16 27 16 22Z"
+                fill="currentColor" opacity="0.35" />
+        </svg>
+        <svg class="corner corner-br" viewBox="0 0 70 70" fill="none">
+            <path d="M2 68 L2 2 L68 2" stroke="currentColor" stroke-width="1" fill="none" />
+            <path d="M12 44 Q12 12 44 12" stroke="currentColor" stroke-width="0.7" fill="none" opacity="0.5" />
+            <circle cx="2" cy="2" r="3" fill="currentColor" />
+            <circle cx="68" cy="2" r="1.5" fill="currentColor" opacity="0.4" />
+            <circle cx="2" cy="68" r="1.5" fill="currentColor" opacity="0.4" />
+            <path d="M16 22 C16 17 22 17 22 22 C22 17 28 17 28 22 C28 27 22 30 22 30 C22 30 16 27 16 22Z"
+                fill="currentColor" opacity="0.35" />
+        </svg>
 
-<section>
-<h2 class="cinematic">Two stories. One beautiful forever.</h2>
-<p class="cinematic">Scroll to experience our journey.</p>
-</section>
+        <!-- Content -->
+        <div class="cover-content">
+            <p class="cover-label">You are cordially invited to the wedding of</p>
 
-<section>
-<h2>Our Story</h2>
-<div class="carousel" id="carousel">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<img src="https://images.unsplash.com/photo-1529636798458-92182e662485">
-<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
-<img src="https://images.unsplash.com/photo-1501901609772-df0848060b33">
-</div>
-</section>
+            <div class="cover-names">
+                Bride Name
+                <span class="cover-amp">&amp;</span>
+                Groom Name
+            </div>
 
-<section>
-<h2>Wedding Week Events</h2>
-<div class="timeline">
-<div class="event"><h3>Haldi Ceremony</h3><p>18 April 2026 • Morning</p></div>
-<div class="event"><h3>Mehendi Ceremony</h3><p>18 April 2026 • Evening</p></div>
-<div class="event"><h3>Sangeet Night</h3><p>19 April 2026 • Evening</p></div>
-<div class="event"><h3>Wedding Ceremony</h3><p>20 April 2026 • 7 PM</p></div>
-</div>
-</section>
+            <div class="cover-hr">
+                <div class="cover-hr-line"></div>
+                <div class="cover-hr-diamond"></div>
+                <div class="cover-hr-line"></div>
+            </div>
 
-<section>
-<h2>Gallery</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
-<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
-</div>
-</section>
+            <p class="cover-date">Saturday, the Twenty-First of June · 2025</p>
 
-<section>
-<h2>RSVP</h2>
-<div class="form">
-<input id="name" placeholder="Your Name" />
-<input id="guests" placeholder="Number of Guests" />
-<textarea id="message" placeholder="Message"></textarea>
-<button onclick="submitRSVP()">Submit RSVP</button>
-</div>
-</section>
+            <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
+        </div>
 
-<footer>
-With Love ❤<br>
-Dimpal & Sushant
-</footer>
+        <div class="cover-scroll">
+            <span>Scroll</span>
+            <div class="cover-line"></div>
+        </div>
+    </div><!-- /cover -->
 
-<script>
 
-const intro=document.getElementById('intro')
-const music=document.getElementById('music')
+    <!-- =============================================================
+     MAIN INVITATION
+============================================================= -->
+    <div id="invitation">
 
-document.getElementById('enterBtn').onclick=()=>{
-intro.style.display='none'
-music.play()
-}
+        <!-- ── HERO ──────────────────────────────────────────────── -->
+        <section class="hero">
+            <div class="hero-box">
+                <p class="hero-eyebrow">Together with their families</p>
 
-/* COUNTDOWN */
-var weddingDate=new Date("Apr 20, 2026 19:00:00").getTime();
-setInterval(function(){
-var now=new Date().getTime();
-var dist=weddingDate-now;
-var d=Math.floor(dist/(1000*60*60*24));
-var h=Math.floor((dist%(1000*60*60*24))/(1000*60*60));
-var m=Math.floor((dist%(1000*60*60))/(1000*60));
-document.getElementById("countdown").innerHTML=d+" Days "+h+" Hours "+m+" Minutes";
-},1000);
+                <h1 class="hero-names">
+                    Bride Name<br>
+                    <span class="amp">&amp;</span><br>
+                    Groom Name
+                </h1>
 
-/* CINEMATIC SCROLL */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting)entry.target.classList.add('show')
-})
-})
+                <div class="ornament">
+                    <div class="orn-line l"></div>
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path
+                            d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" />
+                    </svg>
+                    <div class="orn-line r"></div>
+                </div>
 
-document.querySelectorAll('.cinematic').forEach(el=>observer.observe(el))
+                <p class="hero-date">Saturday, June 21st, 2025 &nbsp;·&nbsp; 4:00 PM</p>
+                <p class="hero-location">The Grand Venue &nbsp;·&nbsp; City Name</p>
+            </div>
 
-/* 3D CAROUSEL */
-const carousel=document.getElementById('carousel').children
-for(let i=0;i<carousel.length;i++){
-carousel[i].style.transform=`rotateY(${i*90}deg) translateZ(350px)`
-}
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="mouse">
+                    <div class="mouse-dot-inner"></div>
+                </div>
+            </div>
+        </section>
 
-/* CONFETTI */
-function confetti(){
-for(let i=0;i<60;i++){
-let c=document.createElement('div')
-c.className='confetti'
-c.style.left=Math.random()*100+'vw'
-c.style.background=['red','yellow','pink','white'][Math.floor(Math.random()*4)]
-c.style.animationDuration=2+Math.random()*3+'s'
-document.body.appendChild(c)
-setTimeout(()=>c.remove(),5000)
-}
-}
+        <!-- ── COUPLE PHOTOS ─────────────────────────────────────── -->
+        <section class="photos-section">
+            <div class="container">
+                <p class="s-label reveal">Meet the Couple</p>
+                <h2 class="s-title reveal">A Love Story</h2>
+                <div class="s-bar reveal"></div>
 
-function submitRSVP(){
-confetti()
-alert('Thank you for confirming your presence!')
-}
+                <div class="photos-grid reveal">
 
-</script>
+                    <!-- Bride -->
+                    <div class="photo-card">
+                        <!--
+                        TO ADD BRIDE PHOTO:
+                        Replace this div with:
+                        <img src="bride.jpg" alt="Bride Name" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(201,168,76,0.35);">
+                    -->
+                        <div class="photo-frame">
+                            <img src="" alt="Bride photo" id="bride-img">
+                            <div class="ph-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                                </svg>
+                            </div>
+                            <span class="ph-text">Bride Photo</span>
+                        </div>
+                        <p class="photo-name">Bride Name</p>
+                    </div>
 
+                    <!-- Couple (centre) -->
+                    <div class="photo-card">
+                        <div class="photo-frame photo-frame-center">
+                            <img src="" alt="Couple photo" id="couple-img">
+                            <div class="ph-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="64"
+                                    height="64">
+                                    <circle cx="9" cy="8" r="3" />
+                                    <circle cx="15" cy="8" r="3" />
+                                    <path d="M3 20c0-3 2.7-5.5 6-5.5" />
+                                    <path d="M21 20c0-3-2.7-5.5-6-5.5" />
+                                    <path d="M9 14.5c1-.3 2-.5 3-.5s2 .2 3 .5" />
+                                </svg>
+                            </div>
+                            <span class="ph-text" style="color:rgba(253,248,240,0.5)">Together</span>
+                        </div>
+                        <p class="photo-name" style="font-size:2.4rem">Forever &amp; Always</p>
+                    </div>
+
+                    <!-- Groom -->
+                    <div class="photo-card">
+                        <!--
+                        TO ADD GROOM PHOTO:
+                        Replace this div with:
+                        <img src="groom.jpg" alt="Groom Name" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(201,168,76,0.35);">
+                    -->
+                        <div class="photo-frame">
+                            <img src="" alt="Groom photo" id="groom-img">
+                            <div class="ph-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                                    <path d="M16 4 L18 2 M18 4 L16 2" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <span class="ph-text">Groom Photo</span>
+                        </div>
+                        <p class="photo-name">Groom Name</p>
+                    </div>
+
+                </div>
+
+                <p class="photo-hint reveal">
+                    Replace the photo placeholders by setting the <code>src</code> attribute on each
+                    <code>&lt;img&gt;</code> element,
+                    or swap the placeholder divs with your own <code>&lt;img&gt;</code> tags.
+                </p>
+            </div>
+        </section>
+
+        <!-- ── WEDDING DETAILS ───────────────────────────────────── -->
+        <section class="details-section">
+            <div class="container">
+                <p class="s-label reveal" style="color:var(--gold)">Save the Date</p>
+                <h2 class="s-title lt reveal">Wedding Details</h2>
+                <div class="s-bar reveal"></div>
+
+                <div class="details-grid reveal">
+
+                    <!-- Ceremony -->
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="40"
+                                height="40">
+                                <path d="M12 2 L3 9 V21 a1 1 0 001 1 h5 v-6 h6 v6 h5 a1 1 0 001-1 V9 Z" />
+                                <path d="M9 13 a3 3 0 006 0" />
+                            </svg>
+                        </div>
+                        <p class="detail-tag">Part One</p>
+                        <h3 class="detail-title">The Ceremony</h3>
+                        <div class="detail-body">
+                            <strong>Saturday, June 21, 2025</strong><br>
+                            4:00 PM — 5:30 PM<br><br>
+                            <strong>Venue Name</strong><br>
+                            123 Venue Street<br>
+                            City, State &amp; ZIP
+                        </div>
+                    </div>
+
+                    <!-- Reception -->
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="40"
+                                height="40">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <path d="M16 2v4M8 2v4M3 10h18" />
+                            </svg>
+                        </div>
+                        <p class="detail-tag">Part Two</p>
+                        <h3 class="detail-title">The Reception</h3>
+                        <div class="detail-body">
+                            <strong>Saturday, June 21, 2025</strong><br>
+                            6:30 PM — 11:00 PM<br><br>
+                            <strong>Reception Hall Name</strong><br>
+                            456 Reception Avenue<br>
+                            City, State &amp; ZIP
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── COUNTDOWN ─────────────────────────────────────────── -->
+        <section class="countdown-section">
+            <div class="container">
+                <p class="s-label reveal">Counting Down</p>
+                <h2 class="s-title reveal">Until We Say I Do</h2>
+                <div class="s-bar reveal"></div>
+
+                <div class="countdown-row reveal">
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-days">000</span>
+                        <span class="cd-lbl">Days</span>
+                    </div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-hours">00</span>
+                        <span class="cd-lbl">Hours</span>
+                    </div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-mins">00</span>
+                        <span class="cd-lbl">Minutes</span>
+                    </div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-secs">00</span>
+                        <span class="cd-lbl">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── OUR STORY ─────────────────────────────────────────── -->
+        <section class="story-section">
+            <div class="container">
+                <p class="s-label reveal">Our Journey</p>
+                <h2 class="s-title reveal">How It All Began</h2>
+                <div class="s-bar reveal"></div>
+
+                <div class="story-wrap reveal">
+                    <p class="story-quote">"And suddenly all the love songs were about you."</p>
+                    <p class="story-body">
+                        Two souls, one beautiful journey. From the moment we met, we knew
+                        that life would never be the same. Through laughter and shared dreams,
+                        through every ordinary moment made extraordinary by simply being
+                        together — this is our story, and it is only just beginning.
+                    </p>
+                    <p class="story-quote" style="font-size:1.5rem; margin:36px 0 28px; color:var(--text-light);">✦
+                        &nbsp; ✦ &nbsp; ✦</p>
+                    <p class="story-body">
+                        We invite you to celebrate with us as we begin this beautiful
+                        new chapter. Your presence at our wedding means the world to us.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SCHEDULE ──────────────────────────────────────────── -->
+        <section class="timeline-section">
+            <div class="container">
+                <p class="s-label reveal" style="color:var(--gold)">The Day</p>
+                <h2 class="s-title lt reveal">Schedule of Events</h2>
+                <div class="s-bar reveal"></div>
+
+                <div class="timeline reveal">
+
+                    <div class="tl-item">
+                        <div class="tl-content">
+                            <p class="tl-time">3:30 PM</p>
+                            <p class="tl-event">Guest Arrival</p>
+                            <p class="tl-note">Guests are welcomed &amp; seated</p>
+                        </div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-spacer"></div>
+                    </div>
+
+                    <div class="tl-item right">
+                        <div class="tl-spacer"></div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <p class="tl-time">4:00 PM</p>
+                            <p class="tl-event">Wedding Ceremony</p>
+                            <p class="tl-note">Exchange of vows &amp; rings</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-content">
+                            <p class="tl-time">5:30 PM</p>
+                            <p class="tl-event">Cocktail Hour</p>
+                            <p class="tl-note">Drinks &amp; light hors d'oeuvres</p>
+                        </div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-spacer"></div>
+                    </div>
+
+                    <div class="tl-item right">
+                        <div class="tl-spacer"></div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <p class="tl-time">6:30 PM</p>
+                            <p class="tl-event">Reception &amp; Dinner</p>
+                            <p class="tl-note">Dinner, toasts &amp; celebration</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item">
+                        <div class="tl-content">
+                            <p class="tl-time">8:00 PM</p>
+                            <p class="tl-event">First Dance &amp; Cake Cutting</p>
+                            <p class="tl-note">The most beautiful moments</p>
+                        </div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-spacer"></div>
+                    </div>
+
+                    <div class="tl-item right">
+                        <div class="tl-spacer"></div>
+                        <div class="tl-dot"></div>
+                        <div class="tl-content">
+                            <p class="tl-time">9:00 PM</p>
+                            <p class="tl-event">Dancing &amp; Celebration</p>
+                            <p class="tl-note">Let the party begin!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── DRESS CODE ────────────────────────────────────────── -->
+        <section class="dress-section">
+            <div class="container">
+                <p class="s-label reveal">Dress Code</p>
+                <h2 class="s-title lt reveal">Black Tie Optional</h2>
+                <div class="s-bar reveal"></div>
+
+                <p class="reveal"
+                    style="text-align:center;color:rgba(253,248,240,0.55);font-size:1.1rem;max-width:520px;margin:0 auto;font-style:italic;">
+                    We invite our guests to embrace the elegance of the evening.
+                    Please avoid white, off-white, or ivory.
+                </p>
+
+                <div class="dress-grid reveal">
+                    <div class="dress-item">
+                        <div class="dress-swatch" style="background:#111;"></div>
+                        <p class="dress-name">Black &amp; Deep Navy</p>
+                    </div>
+                    <div class="dress-item">
+                        <div class="dress-swatch" style="background:#e8d5b0;"></div>
+                        <p class="dress-name">Champagne &amp; Gold</p>
+                    </div>
+                    <div class="dress-item">
+                        <div class="dress-swatch" style="background:#b09070;"></div>
+                        <p class="dress-name">Dusty Rose &amp; Taupe</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── RSVP ──────────────────────────────────────────────── -->
+        <section class="rsvp-section">
+            <div class="container">
+                <p class="s-label reveal">Kindly Reply By May 21st, 2025</p>
+                <h2 class="s-title reveal">RSVP</h2>
+                <div class="s-bar reveal"></div>
+
+                <p class="rsvp-intro reveal">
+                    We would be honoured by your presence. Please let us know whether
+                    you will be joining us on our special day by filling out the form below.
+                </p>
+
+                <div class="rsvp-wrap reveal">
+                    <!--
+                ┌─────────────────────────────────────────────────────────┐
+                │  HOW TO EMBED YOUR GOOGLE FORM                          │
+                │                                                         │
+                │  1. Go to forms.google.com and create/open your form.   │
+                │  2. Click the "Send" button (top right).                │
+                │  3. Click the  < >  (Embed) tab.                       │
+                │  4. Copy the full iframe HTML shown.                    │
+                │  5. Delete the <div class="rsvp-placeholder"> block     │
+                │     below and paste your iframe in its place.           │
+                │                                                         │
+                │  The iframe src will look like:                         │
+                │  https://docs.google.com/forms/d/e/XXXXXXXX/viewform   │
+                │  ?embedded=true                                         │
+                └─────────────────────────────────────────────────────────┘
+
+                EXAMPLE (uncomment & replace the URL):
+
+                <iframe
+                    src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+                    width="100%"
+                    height="950"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+                -->
+
+                    <!-- PLACEHOLDER — delete this block once you add your Google Form iframe above -->
+                    <div class="rsvp-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M22 6 L12 13 L2 6" />
+                        </svg>
+                        <h3>Google Form RSVP</h3>
+                        <p>
+                            Your RSVP form goes here. Replace this placeholder with the
+                            Google Form iframe embed code (see instructions in the HTML comments above).
+                        </p>
+                        <p>Search for <code>HOW TO EMBED YOUR GOOGLE FORM</code> in the source to find the right spot.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── FOOTER ────────────────────────────────────────────── -->
+        <footer>
+            <div class="foot-orn">
+                <div class="foot-orn-line l"></div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(201,168,76,0.55)">
+                    <path
+                        d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" />
+                </svg>
+                <div class="foot-orn-line r"></div>
+            </div>
+
+            <div class="foot-names">Bride &amp; Groom</div>
+            <p class="foot-date">Saturday &nbsp;·&nbsp; June 21, 2025</p>
+
+            <div class="foot-orn">
+                <div class="foot-orn-line l"></div>
+                <div style="width:5px;height:5px;background:var(--gold-dark);transform:rotate(45deg);opacity:0.45;">
+                </div>
+                <div class="foot-orn-line r"></div>
+            </div>
+
+            <p class="foot-verse">"Two are better than one." &emsp;— Ecclesiastes 4:9</p>
+            <p class="foot-credit">Made with love for our special day</p>
+        </footer>
+
+    </div><!-- /invitation -->
+
+
+    <script>
+        /* =====================================================================
+           FALLING GOLD PETALS — canvas animation on the cover page
+        ===================================================================== */
+        (function () {
+            const canvas = document.getElementById('petals-canvas');
+            const ctx = canvas.getContext('2d');
+            let raf;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const COLORS = [
+                'rgba(201,168,76,0.55)',
+                'rgba(232,201,122,0.45)',
+                'rgba(253,230,180,0.38)',
+                'rgba(180,140,60,0.48)',
+                'rgba(245,210,140,0.4)',
+            ];
+
+            function mkPetal(randomY) {
+                return {
+                    x: Math.random() * window.innerWidth,
+                    y: randomY ? Math.random() * window.innerHeight : -20,
+                    size: Math.random() * 7 + 3,
+                    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                    vy: Math.random() * 0.9 + 0.4,
+                    vx: (Math.random() - 0.5) * 1.2,
+                    rot: Math.random() * Math.PI * 2,
+                    rotV: (Math.random() - 0.5) * 0.04,
+                    swayAmp: Math.random() * 1.8 + 0.4,
+                    swayFreq: Math.random() * 0.018 + 0.008,
+                    swayOff: Math.random() * Math.PI * 2,
+                    opacity: Math.random() * 0.45 + 0.25,
+                };
+            }
+
+            const petals = Array.from({ length: 50 }, () => mkPetal(true));
+
+            function draw(t) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < petals.length; i++) {
+                    const p = petals[i];
+                    p.y += p.vy;
+                    p.x += p.vx + Math.sin(t * p.swayFreq + p.swayOff) * p.swayAmp * 0.04;
+                    p.rot += p.rotV;
+                    if (p.y > canvas.height + 20) {
+                        petals[i] = mkPetal(false);
+                        continue;
+                    }
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot);
+                    ctx.globalAlpha = p.opacity;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, p.size, p.size * 1.7, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                raf = requestAnimationFrame(draw);
+            }
+
+            raf = requestAnimationFrame(draw);
+            window._stopPetals = () => cancelAnimationFrame(raf);
+        }());
+
+        /* =====================================================================
+           OPEN INVITATION — transition from cover to main content
+        ===================================================================== */
+        document.body.style.overflow = 'hidden';   // lock scroll on cover
+
+        function openInvitation() {
+            const cover = document.getElementById('cover');
+            const inv = document.getElementById('invitation');
+
+            cover.classList.add('hidden');
+            inv.classList.add('visible');
+            document.body.style.overflow = 'auto';
+
+            // stop petal animation after fade
+            setTimeout(() => { if (window._stopPetals) window._stopPetals(); }, 1500);
+
+            // boot intersection-observer for reveal animations
+            setTimeout(initReveal, 300);
+        }
+
+        /* =====================================================================
+           SCROLL REVEAL
+        ===================================================================== */
+        function initReveal() {
+            const els = document.querySelectorAll('.reveal');
+            const io = new IntersectionObserver(
+                entries => entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        io.unobserve(e.target);
+                    }
+                }),
+                { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+            );
+            els.forEach(el => io.observe(el));
+        }
+
+        /* =====================================================================
+           COUNTDOWN TIMER
+           ↳  Change the weddingDate value to your actual wedding date/time
+        ===================================================================== */
+        const weddingDate = new Date('2025-06-21T16:00:00');   // ← edit this
+
+        function tick() {
+            const diff = weddingDate - Date.now();
+            if (diff <= 0) {
+                ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(id => {
+                    document.getElementById(id).textContent = '00';
+                });
+                return;
+            }
+            const d = Math.floor(diff / 864e5);
+            const h = Math.floor(diff % 864e5 / 36e5);
+            const m = Math.floor(diff % 36e5 / 6e4);
+            const s = Math.floor(diff % 6e4 / 1e3);
+
+            document.getElementById('cd-days').textContent = String(d).padStart(3, '0');
+            document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+            document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+        }
+        tick();
+        setInterval(tick, 1000);
+    </script>
 </body>
+
 </html>
