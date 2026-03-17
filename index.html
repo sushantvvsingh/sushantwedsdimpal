@@ -873,49 +873,158 @@
             box-shadow: 0 20px 80px rgba(0, 0, 0, 0.07);
         }
 
-        .rsvp-wrap iframe {
+        /* ── RSVP Custom Form ─────────────────────────────────── */
+        .rsvp-form {
+            padding: 52px 48px 56px;
+            background: linear-gradient(135deg, #fff 0%, var(--cream-dark) 100%);
+            text-align: left;
+        }
+
+        .rsvp-form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 26px;
+        }
+
+        .rsvp-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .rsvp-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .rsvp-field label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .rsvp-field input:not([type="radio"]),
+        .rsvp-field select,
+        .rsvp-field textarea {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text);
+            background: #fff;
+            border: 1px solid rgba(196, 118, 138, 0.35);
+            padding: 11px 16px;
+            outline: none;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+            border-radius: 0;
+            appearance: none;
+            -webkit-appearance: none;
             width: 100%;
+        }
+
+        .rsvp-field input:not([type="radio"]):focus,
+        .rsvp-field select:focus,
+        .rsvp-field textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(181, 105, 125, 0.12);
+        }
+
+        .rsvp-field textarea {
+            resize: vertical;
+            min-height: 90px;
+            line-height: 1.6;
+        }
+
+        /* Radio group */
+        .rsvp-radio-group {
+            display: flex;
+            gap: 18px;
+            margin-top: 2px;
+        }
+
+        .rsvp-radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .rsvp-radio-label input[type="radio"] {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--gold);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Guest count (hidden until "Yes" chosen) */
+        #guest-count-field {
+            display: none;
+        }
+
+        /* Submit button */
+        .rsvp-submit-row {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .rsvp-btn {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--gold-dark);
             border: none;
-            display: block;
+            padding: 16px 52px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        /* placeholder shown until Google Form is added */
-        .rsvp-placeholder {
+        .rsvp-btn:hover:not(:disabled) {
+            background: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .rsvp-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        /* Success message */
+        .rsvp-success {
             padding: 70px 40px;
-            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
             text-align: center;
+            background: linear-gradient(135deg, #fff 0%, var(--cream-dark) 100%);
         }
 
-        .rsvp-placeholder svg {
-            width: 56px;
-            height: 56px;
+        .rsvp-success svg {
+            width: 52px;
+            height: 52px;
             color: var(--gold);
-            margin: 0 auto 22px;
+            margin: 0 auto 20px;
             display: block;
         }
 
-        .rsvp-placeholder h3 {
+        .rsvp-success h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 400;
             color: var(--text);
             margin-bottom: 12px;
         }
 
-        .rsvp-placeholder p {
+        .rsvp-success p {
             color: var(--text-light);
-            font-size: 1.08rem;
+            font-size: 1.1rem;
             line-height: 1.75;
-            max-width: 480px;
-            margin: 0 auto 14px;
         }
 
-        .rsvp-placeholder code {
-            background: rgba(196, 118, 138, 0.15);
-            padding: 2px 7px;
-            font-size: 0.88em;
-            color: var(--gold-dark);
-            border-radius: 3px;
+        .hidden {
+            display: none !important;
         }
 
         /* =========================================================
@@ -1435,8 +1544,8 @@
             }
 
             /* rsvp */
-            .rsvp-placeholder {
-                padding: 50px 20px;
+            .rsvp-form {
+                padding: 36px 20px 40px;
             }
 
             .rsvp-intro {
@@ -1875,14 +1984,86 @@
                 <p class="rsvp-intro reveal">
                     We would be honoured by your presence. Please let us know whether
                     you will be joining us on our special day by filling out the form below.
+                    We kindly request that you reply by <strong>15th April, 2026</strong>.
                 </p>
 
                 <div class="rsvp-wrap reveal-scale">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdsWX6joxDWAM14txkXB4ekGul2q2kxIdjbzRj67GYAPHm9qQ/viewform?usp=dialog"
-                        width="100%" height="1050" frameborder="0" marginheight="0" marginwidth="0">
-                        Loading…
-                    </iframe>
+
+                    <!-- Custom RSVP Form → data saved to Google Sheet via Apps Script -->
+                    <form class="rsvp-form" id="rsvp-form" novalidate>
+                        <div class="rsvp-form-grid">
+
+                            <!-- Full Name -->
+                            <div class="rsvp-field">
+                                <label for="rsvp-name">Your Full Name(s) *</label>
+                                <input type="text" id="rsvp-name" name="name" required
+                                    placeholder="e.g. Priya &amp; Rahul Sharma">
+                            </div>
+
+                            <!-- Attending -->
+                            <div class="rsvp-field">
+                                <label>Will you be attending the wedding celebration? *</label>
+                                <div class="rsvp-radio-group" style="flex-direction:column;gap:12px;margin-top:6px;">
+                                    <label class="rsvp-radio-label">
+                                        <input type="radio" name="attending" value="Yes" required
+                                            onchange="toggleGuestCount(this)">
+                                        Yes, I will be delighted to attend!
+                                    </label>
+                                    <label class="rsvp-radio-label">
+                                        <input type="radio" name="attending" value="No"
+                                            onchange="toggleGuestCount(this)">
+                                        Regretfully, I will not be able to attend.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Number of Adults (shown only when attending = Yes) -->
+                            <div class="rsvp-field" id="guest-count-field">
+                                <label for="rsvp-guests">How many adults (including yourself) will be attending?
+                                    *</label>
+                                <input type="number" id="rsvp-guests" name="guests" min="1" max="20" placeholder="1">
+                            </div>
+
+                            <!-- Message -->
+                            <div class="rsvp-field">
+                                <label for="rsvp-message">Any additional messages or notes for Dimpal &amp;
+                                    Sushant?</label>
+                                <textarea id="rsvp-message" name="message"
+                                    placeholder="Share your wishes, blessings, or any special requirements…"></textarea>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="rsvp-submit-row">
+                                <button type="submit" class="rsvp-btn" id="rsvp-submit-btn">Send RSVP</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    <!-- Closed state (shown after April 15 deadline) -->
+                    <div class="rsvp-success hidden" id="rsvp-closed">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 7 v5 l3 3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+                        </svg>
+                        <h3>RSVP Closed</h3>
+                        <p>The RSVP deadline of 15th April, 2026 has passed.<br>Please contact Dimpal &amp; Sushant
+                            directly to let them know.</p>
+                    </div>
+
+                    <!-- Success state (shown after submission) -->
+                    <div class="rsvp-success hidden" id="rsvp-success">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                            <path
+                                d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"
+                                fill="currentColor" opacity="0.25" />
+                            <path d="M7 12.5 l3.5 3.5 L17 9" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.8" />
+                        </svg>
+                        <h3>Thank You!</h3>
+                        <p>Your RSVP has been received.<br>We look forward to celebrating with you.</p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -2147,6 +2328,110 @@
         }
         tick();
         setInterval(tick, 1000);
+
+        /* =====================================================================
+           RSVP FORM — submits to Google Sheet via Apps Script Web App
+           ─────────────────────────────────────────────────────────────────────
+           SETUP (one-time, ~3 minutes):
+           1. Open your Google Sheet → Extensions → Apps Script
+           2. Paste the doPost() function from the comment block below
+           3. Deploy → New deployment → Web app
+              - Execute as: Me   |   Who has access: Anyone
+           4. Copy the Web App URL and paste it into APPS_SCRIPT_URL below
+           ─────────────────────────────────────────────────────────────────────
+           Apps Script code to paste:
+           ─────────────────────────────────────────────────────────────────────
+           function doPost(e) {
+             var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+             var data  = e.parameter;
+             sheet.appendRow([
+               new Date(),
+               data.name    || '',
+               data.email   || '',
+               data.phone   || '',
+               data.attending || '',
+               data.guests  || '',
+               data.message || ''
+             ]);
+             return ContentService
+               .createTextOutput(JSON.stringify({ result: 'success' }))
+               .setMimeType(ContentService.MimeType.JSON);
+           }
+           ─────────────────────────────────────────────────────────────────────
+        ===================================================================== */
+        (function () {
+            // ← Paste your deployed Apps Script Web App URL here
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyuIS5Oh2Ulpzs4G19k2zyNFZlNptu4F6x3XBr49SuPKfIpCi8ZcbCpcnPLpfCFceYx/exec';
+
+            // ── Deadline check: hide form after April 15, 2026 ──────────
+            var DEADLINE = new Date('2026-04-16T00:00:00');  // midnight after Apr 15
+            if (new Date() >= DEADLINE) {
+                var f = document.getElementById('rsvp-form');
+                var c = document.getElementById('rsvp-closed');
+                if (f) f.classList.add('hidden');
+                if (c) c.classList.remove('hidden');
+            }
+
+            function toggleGuestCount(radio) {
+                document.getElementById('guest-count-field').style.display =
+                    radio.value === 'Yes' ? 'flex' : 'none';
+            }
+            window.toggleGuestCount = toggleGuestCount;
+
+            var form = document.getElementById('rsvp-form');
+            if (!form) return;
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Basic client-side validation
+                var name = form.querySelector('#rsvp-name').value.trim();
+                var attending = form.querySelector('input[name="attending"]:checked');
+                var guestsField = form.querySelector('#rsvp-guests');
+                var guests = guestsField ? guestsField.value.trim() : '';
+
+                if (!name) {
+                    alert('Please enter your full name.');
+                    return;
+                }
+
+                if (!attending) {
+                    alert('Please let us know whether you will be attending.');
+                    return;
+                }
+
+                if (attending.value === 'Yes' && (!guests || parseInt(guests, 10) < 1)) {
+                    alert('Please enter the number of adults attending.');
+                    return;
+                }
+
+                if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL') {
+                    alert('RSVP form is not connected yet. Please add the Apps Script URL.');
+                    return;
+                }
+
+                var btn = document.getElementById('rsvp-submit-btn');
+                btn.disabled = true;
+                btn.textContent = 'Sending…';
+
+                var formData = new FormData(form);
+
+                try {
+                    await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'   // Apps Script redirect requires no-cors
+                    });
+                    // no-cors means we can't read status, assume success
+                    form.classList.add('hidden');
+                    document.getElementById('rsvp-success').classList.remove('hidden');
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.textContent = 'Send RSVP';
+                    alert('Something went wrong. Please try again or contact us directly.');
+                }
+            });
+        }());
     </script>
 </body>
 
