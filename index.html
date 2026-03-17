@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bride Name &amp; Groom Name — Wedding Invitation</title>
+    <title>Dimpal &amp; Sushant — Wedding Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -32,12 +32,12 @@
             /* blush white                 */
             --cream-dark: #F5E4E9;
             /* light blush cream           */
-            --dark: #2A0F1C;
-            /* deep plum                   */
-            --dark2: #3D162A;
-            /* dark rose-plum              */
-            --dark3: #4F1F37;
-            /* mid dark rose               */
+            --dark: #FBE4EE;
+            /* light blush section bg      */
+            --dark2: #FDE8F1;
+            /* lighter blush               */
+            --dark3: #F5D8E5;
+            /* mid blush                   */
             --text: #4A1E30;
             /* dark plum text              */
             --text-light: #8B5468;
@@ -295,12 +295,12 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 15% 50%, rgba(196, 118, 138, 0.07) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 50%, rgba(196, 118, 138, 0.07) 0%, transparent 55%);
+                radial-gradient(ellipse at 15% 50%, rgba(196, 118, 138, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 50%, rgba(196, 118, 138, 0.18) 0%, transparent 55%);
         }
 
         .hero-box {
-            border: 1px solid rgba(196, 118, 138, 0.28);
+            border: 1px solid rgba(196, 118, 138, 0.45);
             padding: clamp(40px, 6vw, 80px) clamp(30px, 7vw, 100px);
             max-width: 820px;
             width: 100%;
@@ -340,7 +340,7 @@
         .hero-names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3rem, 10vw, 6.5rem);
-            color: var(--cream);
+            color: var(--text);
             line-height: 1.1;
         }
 
@@ -375,7 +375,7 @@
             font-size: clamp(0.95rem, 2.2vw, 1.2rem);
             font-weight: 300;
             letter-spacing: 0.2em;
-            color: rgba(253, 248, 240, 0.75);
+            color: var(--text-light);
             margin-bottom: 8px;
         }
 
@@ -455,7 +455,7 @@
         }
 
         .s-title.lt {
-            color: var(--cream);
+            color: var(--text);
         }
 
         .s-bar {
@@ -524,7 +524,7 @@
 
         .photo-frame-center {
             aspect-ratio: 3/4;
-            background: linear-gradient(150deg, #2A0F1C, #3D162A);
+            background: linear-gradient(150deg, #8B2040, #6A1530);
         }
 
         .photo-frame-center .ph-icon {
@@ -602,7 +602,7 @@
 
         .detail-card:hover {
             border-color: rgba(196, 118, 138, 0.5);
-            background: rgba(196, 118, 138, 0.025);
+            background: rgba(196, 118, 138, 0.07);
         }
 
         .detail-card::before,
@@ -646,19 +646,19 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             font-weight: 400;
-            color: var(--cream);
+            color: var(--text);
             margin-bottom: 24px;
         }
 
         .detail-body {
             font-size: 1.08rem;
             font-weight: 300;
-            color: rgba(253, 248, 240, 0.65);
+            color: var(--text-light);
             line-height: 1.9;
         }
 
         .detail-body strong {
-            color: var(--cream);
+            color: var(--text);
             font-weight: 500;
         }
 
@@ -814,57 +814,17 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
             font-weight: 400;
-            color: var(--cream);
+            color: var(--text);
             margin-bottom: 3px;
         }
 
         .tl-note {
             font-size: 0.93rem;
             font-weight: 300;
-            color: rgba(253, 248, 240, 0.45);
-        }
-
-        /* =========================================================
-           DRESS CODE
-        ========================================================= */
-        .dress-section {
-            background: var(--dark);
-            text-align: center;
-        }
-
-        .dress-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-            max-width: 780px;
-            margin: 50px auto 0;
+            color: var(--text-light);
         }
 
 
-        .dress-item {
-            padding: 28px 18px;
-            border: 1px solid rgba(196, 118, 138, 0.14);
-            transition: border-color 0.3s;
-        }
-
-        .dress-item:hover {
-            border-color: rgba(196, 118, 138, 0.4);
-        }
-
-        .dress-swatch {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            margin: 0 auto 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .dress-name {
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--cream);
-            letter-spacing: 0.08em;
-        }
 
         /* =========================================================
            RSVP
@@ -944,7 +904,7 @@
             background: var(--dark);
             padding: 80px 20px;
             text-align: center;
-            border-top: 1px solid rgba(196, 118, 138, 0.14);
+            border-top: 1px solid rgba(196, 118, 138, 0.35);
         }
 
         .foot-names {
@@ -957,7 +917,7 @@
         .foot-date {
             font-size: 0.85rem;
             letter-spacing: 0.35em;
-            color: rgba(253, 248, 240, 0.45);
+            color: var(--text-light);
             text-transform: uppercase;
             margin-bottom: 36px;
         }
@@ -986,14 +946,15 @@
 
         .foot-verse {
             font-size: 0.88rem;
-            color: rgba(253, 248, 240, 0.38);
+            color: var(--text-light);
+            font-style: italic;
             letter-spacing: 0.12em;
             margin-bottom: 28px;
         }
 
         .foot-credit {
             font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.12);
+            color: rgba(150, 71, 92, 0.45);
             letter-spacing: 0.1em;
         }
 
@@ -1384,9 +1345,9 @@
             <p class="cover-label">You are cordially invited to the wedding of</p>
 
             <div class="cover-names">
-                Bride Name
+                Dimpal
                 <span class="cover-amp">&amp;</span>
-                Groom Name
+                Sushant
             </div>
 
             <div class="cover-hr">
@@ -1395,15 +1356,11 @@
                 <div class="cover-hr-line"></div>
             </div>
 
-            <p class="cover-date">Saturday, the Twenty-First of June · 2025</p>
+            <p class="cover-date">Monday, the Twentieth of April &middot; 2026</p>
 
             <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
         </div>
 
-        <div class="cover-scroll">
-            <span>Scroll</span>
-            <div class="cover-line"></div>
-        </div>
     </div><!-- /cover -->
 
 
@@ -1418,9 +1375,9 @@
                 <p class="hero-eyebrow">Together with their families</p>
 
                 <h1 class="hero-names">
-                    Bride Name<br>
+                    Dimpal<br>
                     <span class="amp">&amp;</span><br>
-                    Groom Name
+                    Sushant
                 </h1>
 
                 <div class="ornament">
@@ -1432,8 +1389,8 @@
                     <div class="orn-line r"></div>
                 </div>
 
-                <p class="hero-date">Saturday, June 21st, 2025 &nbsp;·&nbsp; 4:00 PM</p>
-                <p class="hero-location">The Grand Venue &nbsp;·&nbsp; City Name</p>
+                <p class="hero-date">Monday, April 20, 2026 &nbsp;&middot;&nbsp; 8:00 PM</p>
+                <p class="hero-location">Chancellor Club &nbsp;&middot;&nbsp; Ashiyana, Lucknow</p>
             </div>
 
             <div class="hero-scroll">
@@ -1456,21 +1413,21 @@
                     <!-- Bride -->
                     <div class="photo-card">
                         <!--
-                        TO ADD BRIDE PHOTO:
+                        TO ADD DIMPAL'S PHOTO:
                         Replace this div with:
-                        <img src="bride.jpg" alt="Bride Name" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
+                        <img src="bride.jpg" alt="Dimpal" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
                     -->
                         <div class="photo-frame">
-                            <img src="" alt="Bride photo" id="bride-img">
+                            <img src="" alt="Dimpal photo" id="bride-img">
                             <div class="ph-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                     <circle cx="12" cy="8" r="4" />
                                     <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                                 </svg>
                             </div>
-                            <span class="ph-text">Bride Photo</span>
+                            <span class="ph-text">Dimpal's Photo</span>
                         </div>
-                        <p class="photo-name">Bride Name</p>
+                        <p class="photo-name">Dimpal</p>
                     </div>
 
                     <!-- Couple (centre) -->
@@ -1487,7 +1444,7 @@
                                     <path d="M9 14.5c1-.3 2-.5 3-.5s2 .2 3 .5" />
                                 </svg>
                             </div>
-                            <span class="ph-text" style="color:rgba(253,248,240,0.5)">Together</span>
+                            <span class="ph-text" style="color:rgba(253,248,240,0.6)">Together</span>
                         </div>
                         <p class="photo-name" style="font-size:2.4rem">Forever &amp; Always</p>
                     </div>
@@ -1495,12 +1452,12 @@
                     <!-- Groom -->
                     <div class="photo-card">
                         <!--
-                        TO ADD GROOM PHOTO:
+                        TO ADD SUSHANT'S PHOTO:
                         Replace this div with:
-                        <img src="groom.jpg" alt="Groom Name" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
+                        <img src="groom.jpg" alt="Sushant" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(196,118,138,0.35);">
                     -->
                         <div class="photo-frame">
-                            <img src="" alt="Groom photo" id="groom-img">
+                            <img src="" alt="Sushant photo" id="groom-img">
                             <div class="ph-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                     <circle cx="12" cy="8" r="4" />
@@ -1508,9 +1465,9 @@
                                     <path d="M16 4 L18 2 M18 4 L16 2" stroke-linecap="round" />
                                 </svg>
                             </div>
-                            <span class="ph-text">Groom Photo</span>
+                            <span class="ph-text">Sushant's Photo</span>
                         </div>
-                        <p class="photo-name">Groom Name</p>
+                        <p class="photo-name">Sushant</p>
                     </div>
 
                 </div>
@@ -1541,14 +1498,14 @@
                                 <path d="M9 13 a3 3 0 006 0" />
                             </svg>
                         </div>
-                        <p class="detail-tag">Part One</p>
+                        <p class="detail-tag">Wedding</p>
                         <h3 class="detail-title">The Ceremony</h3>
                         <div class="detail-body">
-                            <strong>Saturday, June 21, 2025</strong><br>
-                            4:00 PM — 5:30 PM<br><br>
-                            <strong>Venue Name</strong><br>
-                            123 Venue Street<br>
-                            City, State &amp; ZIP
+                            <strong>Monday, April 20, 2026</strong><br>
+                            8:00 PM Onwards<br><br>
+                            <strong>Chancellor Club</strong><br>
+                            Ashiyana, Lucknow<br>
+                            Uttar Pradesh
                         </div>
                     </div>
 
@@ -1561,14 +1518,14 @@
                                 <path d="M16 2v4M8 2v4M3 10h18" />
                             </svg>
                         </div>
-                        <p class="detail-tag">Part Two</p>
-                        <h3 class="detail-title">The Reception</h3>
+                        <p class="detail-tag">Reception</p>
+                        <h3 class="detail-title">The Celebration</h3>
                         <div class="detail-body">
-                            <strong>Saturday, June 21, 2025</strong><br>
-                            6:30 PM — 11:00 PM<br><br>
-                            <strong>Reception Hall Name</strong><br>
-                            456 Reception Avenue<br>
-                            City, State &amp; ZIP
+                            <strong>Monday, April 20, 2026</strong><br>
+                            9:30 PM &mdash; Late<br><br>
+                            <strong>Chancellor Club</strong><br>
+                            Ashiyana, Lucknow<br>
+                            Uttar Pradesh
                         </div>
                     </div>
 
@@ -1643,7 +1600,7 @@
 
                     <div class="tl-item">
                         <div class="tl-content">
-                            <p class="tl-time">3:30 PM</p>
+                            <p class="tl-time">7:00 PM</p>
                             <p class="tl-event">Guest Arrival</p>
                             <p class="tl-note">Guests are welcomed &amp; seated</p>
                         </div>
@@ -1655,17 +1612,17 @@
                         <div class="tl-spacer"></div>
                         <div class="tl-dot"></div>
                         <div class="tl-content">
-                            <p class="tl-time">4:00 PM</p>
-                            <p class="tl-event">Wedding Ceremony</p>
-                            <p class="tl-note">Exchange of vows &amp; rings</p>
+                            <p class="tl-time">7:30 PM</p>
+                            <p class="tl-event">Welcome Cocktails</p>
+                            <p class="tl-note">Drinks &amp; light starters</p>
                         </div>
                     </div>
 
                     <div class="tl-item">
                         <div class="tl-content">
-                            <p class="tl-time">5:30 PM</p>
-                            <p class="tl-event">Cocktail Hour</p>
-                            <p class="tl-note">Drinks &amp; light hors d'oeuvres</p>
+                            <p class="tl-time">8:00 PM</p>
+                            <p class="tl-event">Wedding Ceremony</p>
+                            <p class="tl-note">Varmala &amp; exchange of vows</p>
                         </div>
                         <div class="tl-dot"></div>
                         <div class="tl-spacer"></div>
@@ -1675,16 +1632,16 @@
                         <div class="tl-spacer"></div>
                         <div class="tl-dot"></div>
                         <div class="tl-content">
-                            <p class="tl-time">6:30 PM</p>
-                            <p class="tl-event">Reception &amp; Dinner</p>
-                            <p class="tl-note">Dinner, toasts &amp; celebration</p>
+                            <p class="tl-time">9:30 PM</p>
+                            <p class="tl-event">Dinner &amp; Reception</p>
+                            <p class="tl-note">Feast, toasts &amp; celebration</p>
                         </div>
                     </div>
 
                     <div class="tl-item">
                         <div class="tl-content">
-                            <p class="tl-time">8:00 PM</p>
-                            <p class="tl-event">First Dance &amp; Cake Cutting</p>
+                            <p class="tl-time">10:30 PM</p>
+                            <p class="tl-event">Cake Cutting &amp; First Dance</p>
                             <p class="tl-note">The most beautiful moments</p>
                         </div>
                         <div class="tl-dot"></div>
@@ -1695,8 +1652,8 @@
                         <div class="tl-spacer"></div>
                         <div class="tl-dot"></div>
                         <div class="tl-content">
-                            <p class="tl-time">9:00 PM</p>
-                            <p class="tl-event">Dancing &amp; Celebration</p>
+                            <p class="tl-time">11:30 PM</p>
+                            <p class="tl-event">Music &amp; Dancing</p>
                             <p class="tl-note">Let the party begin!</p>
                         </div>
                     </div>
@@ -1705,40 +1662,12 @@
             </div>
         </section>
 
-        <!-- ── DRESS CODE ────────────────────────────────────────── -->
-        <section class="dress-section">
-            <div class="container">
-                <p class="s-label reveal">Dress Code</p>
-                <h2 class="s-title lt reveal">Black Tie Optional</h2>
-                <div class="s-bar reveal"></div>
-
-                <p class="reveal"
-                    style="text-align:center;color:rgba(253,248,240,0.55);font-size:1.1rem;max-width:520px;margin:0 auto;font-style:italic;">
-                    We invite our guests to embrace the elegance of the evening.
-                    Please avoid white, off-white, or ivory.
-                </p>
-
-                <div class="dress-grid reveal">
-                    <div class="dress-item">
-                        <div class="dress-swatch" style="background:#111;"></div>
-                        <p class="dress-name">Black &amp; Deep Navy</p>
-                    </div>
-                    <div class="dress-item">
-                        <div class="dress-swatch" style="background:#e8d5b0;"></div>
-                        <p class="dress-name">Champagne &amp; Gold</p>
-                    </div>
-                    <div class="dress-item">
-                        <div class="dress-swatch" style="background:#b09070;"></div>
-                        <p class="dress-name">Dusty Rose &amp; Taupe</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- ── DRESS CODE section removed ────────────────────────── -->
 
         <!-- ── RSVP ──────────────────────────────────────────────── -->
         <section class="rsvp-section">
             <div class="container">
-                <p class="s-label reveal">Kindly Reply By May 21st, 2025</p>
+                <p class="s-label reveal">Kindly Reply By April 5, 2026</p>
                 <h2 class="s-title reveal">RSVP</h2>
                 <div class="s-bar reveal"></div>
 
@@ -1749,47 +1678,65 @@
 
                 <div class="rsvp-wrap reveal">
                     <!--
-                ┌─────────────────────────────────────────────────────────┐
-                │  HOW TO EMBED YOUR GOOGLE FORM                          │
-                │                                                         │
-                │  1. Go to forms.google.com and create/open your form.   │
-                │  2. Click the "Send" button (top right).                │
-                │  3. Click the  < >  (Embed) tab.                       │
-                │  4. Copy the full iframe HTML shown.                    │
-                │  5. Delete the <div class="rsvp-placeholder"> block     │
-                │     below and paste your iframe in its place.           │
-                │                                                         │
-                │  The iframe src will look like:                         │
-                │  https://docs.google.com/forms/d/e/XXXXXXXX/viewform   │
-                │  ?embedded=true                                         │
-                └─────────────────────────────────────────────────────────┘
+                    ================================================================
+                    STEP 3 — PASTE YOUR GOOGLE FORM IFRAME HERE
+                    (follow the 3-step guide inside the placeholder below)
 
-                EXAMPLE (uncomment & replace the URL):
+                    Replace the <div class="rsvp-placeholder">...</div> with:
 
-                <iframe
-                    src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
-                    width="100%"
-                    height="950"
-                    frameborder="0"
-                    marginheight="0"
-                    marginwidth="0">
-                    Loading…
-                </iframe>
-                -->
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+                        width="100%"
+                        height="1050"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0">
+                        Loading…
+                    </iframe>
+                    ================================================================
+                    -->
 
-                    <!-- PLACEHOLDER — delete this block once you add your Google Form iframe above -->
                     <div class="rsvp-placeholder">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                             <rect x="2" y="4" width="20" height="16" rx="2" />
                             <path d="M22 6 L12 13 L2 6" />
                         </svg>
-                        <h3>Google Form RSVP</h3>
-                        <p>
-                            Your RSVP form goes here. Replace this placeholder with the
-                            Google Form iframe embed code (see instructions in the HTML comments above).
-                        </p>
-                        <p>Search for <code>HOW TO EMBED YOUR GOOGLE FORM</code> in the source to find the right spot.
-                        </p>
+                        <h3>RSVP &mdash; Setup Guide</h3>
+                        <div style="text-align:left;max-width:540px;margin:0 auto;">
+
+                            <p
+                                style="font-family:'Playfair Display',serif;font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin:24px 0 8px;">
+                                Step 1 &mdash; Create the Google Form</p>
+                            <p>Go to <code>forms.google.com</code> &rarr; click <code>+</code> New Form.<br>
+                                Add a title, e.g. <em>&ldquo;Dimpal &amp; Sushant &mdash; RSVP&rdquo;</em>.<br>
+                                Suggested questions: <em>Full Name &middot; Will you attend? (Yes / No) &middot; Number
+                                    of Guests &middot; Dietary Preferences &middot; Message for the Couple</em>.</p>
+
+                            <p
+                                style="font-family:'Playfair Display',serif;font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin:24px 0 8px;">
+                                Step 2 &mdash; Link Responses to Google Sheets</p>
+                            <p>Inside the form editor click the <strong>Responses</strong> tab at the top.<br>
+                                Click the green <strong>Google Sheets icon (&#8599;)</strong> &rarr; choose
+                                <em>&ldquo;Create a new spreadsheet&rdquo;</em>.<br>
+                                Name it <em>&ldquo;Dimpal &amp; Sushant &mdash; Guest RSVPs&rdquo;</em> &rarr; click
+                                <strong>Create</strong>.<br>
+                                Every new RSVP submission will now auto-save to that sheet in real time. You can open it
+                                anytime from Google Drive.</p>
+
+                            <p
+                                style="font-family:'Playfair Display',serif;font-size:0.78rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin:24px 0 8px;">
+                                Step 3 &mdash; Embed the Form on This Page</p>
+                            <p>Back in the form editor click <strong>Send</strong> (top-right) &rarr; click the
+                                <code>&lt; &gt;</code> embed tab &rarr; copy the full <code>&lt;iframe&gt;</code> code
+                                shown.<br>
+                                In this HTML file find the comment
+                                <code>STEP 3 &mdash; PASTE YOUR GOOGLE FORM IFRAME HERE</code>.<br>
+                                Delete this entire
+                                <code>&lt;div class=&quot;rsvp-placeholder&quot;&gt;&hellip;&lt;/div&gt;</code> block
+                                and paste the copied iframe in its place.</p>
+                        </div>
+                        <p style="margin-top:28px;font-size:0.82rem;color:var(--text-light);">Search for
+                            <code>STEP 3</code> in the source to find the exact insertion point.</p>
                     </div>
                 </div>
             </div>
@@ -1806,8 +1753,8 @@
                 <div class="foot-orn-line r"></div>
             </div>
 
-            <div class="foot-names">Bride &amp; Groom</div>
-            <p class="foot-date">Saturday &nbsp;·&nbsp; June 21, 2025</p>
+            <div class="foot-names">Dimpal &amp; Sushant</div>
+            <p class="foot-date">Monday &nbsp;&middot;&nbsp; April 20, 2026</p>
 
             <div class="foot-orn">
                 <div class="foot-orn-line l"></div>
@@ -1937,7 +1884,7 @@
            COUNTDOWN TIMER
            ↳  Change the weddingDate value to your actual wedding date/time
         ===================================================================== */
-        const weddingDate = new Date('2025-06-21T16:00:00');   // ← edit this
+        const weddingDate = new Date('2026-04-20T20:00:00');   // ← edit this
 
         function tick() {
             const diff = weddingDate - Date.now();
