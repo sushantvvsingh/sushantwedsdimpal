@@ -55,6 +55,10 @@
             background: var(--cream);
             color: var(--text);
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
 
         #cover {
@@ -66,7 +70,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             z-index: 1000;
             transition: opacity 1.3s ease, visibility 1.3s ease;
             overflow-y: auto;
@@ -133,18 +137,23 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 60px 60px;
+            /* padding uses vh so it shrinks on short screens */
+            padding: clamp(20px, 6vh, 60px) clamp(18px, 5vw, 60px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            /* gap shrinks proportionally on short viewports */
+            gap: clamp(10px, 2.2vh, 20px);
+            width: 100%;
+            /* 100svh = smallest viewport (browser chrome fully visible) prevents overlap */
             min-height: 100vh;
+            min-height: 100svh;
             box-sizing: border-box;
         }
 
         .cover-label {
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.45rem);
             font-weight: 300;
             letter-spacing: 0.6em;
             color: rgba(253, 248, 240, 0.65);
@@ -156,9 +165,10 @@
 
         .cover-names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.8rem, 9vw, 6rem);
+            /* clamp also uses vh so names shrink on short screens */
+            font-size: clamp(2.8rem, min(11vw, 10vh), 7.5rem);
             color: var(--gold);
-            line-height: 1.2;
+            line-height: 1.1;
             text-shadow: 0 0 80px rgba(196, 118, 138, 0.25);
             opacity: 0;
             animation: fadeUp 1.4s ease 0.5s forwards;
@@ -195,7 +205,7 @@
         }
 
         .cover-date {
-            font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+            font-size: clamp(1.1rem, 2.8vw, 1.55rem);
             font-weight: 300;
             letter-spacing: 0.3em;
             color: rgba(253, 248, 240, 0.65);
@@ -206,12 +216,12 @@
 
         .open-btn {
             display: inline-block;
-            padding: 15px 52px;
+            padding: 17px 60px;
             background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 400;
             letter-spacing: 0.4em;
             text-transform: uppercase;
@@ -1345,6 +1355,16 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
 
             html {
@@ -1357,7 +1377,7 @@
 
             .photos-grid {
                 grid-template-columns: 1fr;
-                max-width: 320px;
+                max-width: min(400px, 90vw);
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -1369,6 +1389,7 @@
 
             .cover-content {
                 padding: 30px 28px;
+                gap: 16px;
             }
 
             .cover-label {
@@ -1415,6 +1436,18 @@
                 padding: 36px 24px;
             }
 
+            .detail-body {
+                line-height: 1.8;
+            }
+
+            .rsvp-form {
+                padding: 36px 28px 40px;
+            }
+
+            .rsvp-btn {
+                padding: 15px 36px;
+            }
+
             .events-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1458,7 +1491,8 @@
             }
 
             .cover-content {
-                padding: 20px 18px;
+                padding: 16px 18px;
+                gap: 10px;
             }
 
             .cover-label {
@@ -1504,7 +1538,7 @@
             }
 
             .photos-grid {
-                max-width: 260px;
+                max-width: min(320px, 92vw);
             }
 
             .photo-hint {
@@ -1539,11 +1573,20 @@
             }
 
             .rsvp-form {
-                padding: 36px 20px 40px;
+                padding: 28px 16px 32px;
             }
 
             .rsvp-intro {
                 font-size: 1.25rem;
+            }
+
+            .rsvp-btn {
+                width: 100%;
+                padding: 14px 16px;
+            }
+
+            .open-btn {
+                max-width: min(260px, 80vw);
             }
 
             #cover {
@@ -1592,7 +1635,8 @@
         /* ── Ganesha image ── */
         .ganesha-img {
             display: block;
-            width: clamp(100px, 22vw, 90px);
+            /* vh constraint ensures it shrinks on short screens */
+            width: clamp(70px, min(20vw, 13vh), 140px);
             height: auto;
             margin: 0 auto;
             filter: invert(1) sepia(1) saturate(2) hue-rotate(300deg) drop-shadow(0 0 12px rgba(196, 118, 138, 0.7));
@@ -1602,7 +1646,7 @@
 
         .hero-ganesha {
             display: block;
-            width: clamp(100px, 22vw, 90px);
+            width: clamp(70px, 18vw, 120px);
             height: auto;
             margin: 0 auto 18px;
             filter: sepia(1) saturate(1.5) hue-rotate(300deg) brightness(0.6) drop-shadow(0 2px 10px rgba(138, 64, 85, 0.35));
@@ -1693,29 +1737,52 @@
             }
         }
 
+        @supports (padding: env(safe-area-inset-bottom)) {
+            #music-btn {
+                bottom: calc(32px + env(safe-area-inset-bottom));
+            }
+
+            footer {
+                padding-bottom: calc(80px + env(safe-area-inset-bottom));
+            }
+
+            @media (max-width: 480px) {
+                #music-btn {
+                    bottom: calc(20px + env(safe-area-inset-bottom));
+                }
+            }
+        }
+
         @media (max-height: 500px) and (max-width: 900px) {
             .cover-scroll {
                 display: none;
             }
 
             .cover-content {
-                padding: 14px 28px;
+                padding: 14px 28px 20px;
+                gap: 8px;
+                min-height: auto;
+                justify-content: flex-start;
             }
 
             .cover-label {
-                margin-bottom: 16px;
+                margin-bottom: 0;
             }
 
             .cover-names {
-                font-size: clamp(2.4rem, 9vw, 4rem);
+                font-size: clamp(2rem, 9vw, 3.5rem);
+            }
+
+            .ganesha-img {
+                width: 54px;
             }
 
             .cover-hr {
-                margin: 16px auto;
+                margin: 4px auto;
             }
 
             .cover-date {
-                margin-bottom: 20px;
+                margin-bottom: 0;
             }
         }
     </style>
