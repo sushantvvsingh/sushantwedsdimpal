@@ -1581,6 +1581,73 @@
             }
         }
 
+        /* ── Music Player ── */
+        #music-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 998;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--gold-dark);
+            border: 1px solid rgba(196, 118, 138, 0.45);
+            color: #fff;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px rgba(138, 64, 85, 0.38);
+            transition: background 0.3s ease, transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #music-btn:hover {
+            background: var(--gold);
+            transform: scale(1.08);
+        }
+
+        #music-btn .icon-play {
+            display: block;
+        }
+
+        #music-btn .icon-pause {
+            display: none;
+        }
+
+        #music-btn.playing .icon-play {
+            display: none;
+        }
+
+        #music-btn.playing .icon-pause {
+            display: block;
+        }
+
+        @keyframes musicPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 24px rgba(138, 64, 85, 0.38);
+            }
+
+            50% {
+                box-shadow: 0 4px 36px rgba(138, 64, 85, 0.65);
+            }
+        }
+
+        #music-btn.playing {
+            animation: musicPulse 2.4s ease-in-out infinite;
+        }
+
+        @media (max-width: 480px) {
+            #music-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 46px;
+                height: 46px;
+            }
+        }
+
         @media (max-height: 500px) and (max-width: 900px) {
             .cover-scroll {
                 display: none;
@@ -2046,6 +2113,21 @@
 
     </div>
 
+    <!-- Background music: place your audio file as "music.mp3" in the same folder as index.html -->
+    <audio id="bg-music" loop preload="auto" src="music.mp3"></audio>
+
+    <!-- Floating music toggle button -->
+    <button id="music-btn" title="Toggle music" aria-label="Toggle background music">
+        <!-- Play icon -->
+        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path d="M8 5v14l11-7z" />
+        </svg>
+        <!-- Pause icon -->
+        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+    </button>
+
     <script>
 
         (function () {
@@ -2130,8 +2212,32 @@
             setTimeout(() => { if (window._stopPetals) window._stopPetals(); }, 1500);
 
             startInvitationPetals();
+            startMusic();
 
             setTimeout(initReveal, 300);
+        }
+
+        function startMusic() {
+            var audio = document.getElementById('bg-music');
+            var btn = document.getElementById('music-btn');
+            if (!audio || !btn) return;
+            btn.style.display = 'flex';
+
+            audio.volume = 0.8;
+            audio.play().then(function () {
+                btn.classList.add('playing');
+            }).catch(function () {
+                /* autoplay blocked — button still shows for manual start */
+            });
+
+            btn.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play().then(function () { btn.classList.add('playing'); }).catch(function () { });
+                } else {
+                    audio.pause();
+                    btn.classList.remove('playing');
+                }
+            });
         }
 
         function startInvitationPetals() {
